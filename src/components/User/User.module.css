@@ -1,0 +1,130 @@
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: #63686e;
+    min-height: 100vh;
+    width: 100%;
+    max-height: max-content;
+}
+
+.subContainerUser{
+    background-color: #373640;
+    /* border: 2px solid #63686e; */
+    padding: 40px;
+    padding-top: 180px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 30px #373640,
+              0px 0px 30px #63686e;
+}
+
+.subContainer1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    border-right: 1.5px solid #63686e;
+    border-left: 1.5px solid #63686e;
+    width: 1280px;
+    padding-top: 50px;
+    height: max-content;
+}
+
+.subContainer2{
+    display: flex;
+    justify-content: space-between;
+    /* background-color: red; */
+    width: 815px;
+    padding-bottom: 30px;
+    border-bottom: 1.5px solid #B6F7C1;
+}
+
+.subContainerData{
+    display: flex;
+    justify-content: space-between;
+    width: 815px;
+    background-color: #373640;
+}
+
+.containerSkills{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 60%;
+    font-family: 'Ruda', sans-serif;
+    font-size: small;
+    color: #B6F7C1;
+    padding-bottom: 10px;
+    /* background-color: green; */
+}
+.containerExperience{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 40%;
+    font-family: 'Ruda', sans-serif;
+    font-size: small;
+    color: #B6F7C1;
+    padding-bottom:10px;
+    padding-left: 20px;
+    border-left: 2px solid #B6F7C1;
+    /* background-color: aqua; */
+}
+
+.title{
+    padding-top: 5px;
+    width: 100%;
+    font-family: 'Ruda', sans-serif;
+    font-size: small;
+    color: #B6F7C1;
+    /* background-color: aqua; */
+}
+
+.TechnicalSkills{
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    padding-top: 10px;
+
+}
+.TechnicalSkills div{
+    display: flex;
+    padding-left: 30px;
+    margin-top: 10px;
+}
+.SoftSkills{
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    padding-top: 10px;
+}
+.SoftSkills div{
+    display: flex;
+    padding-left: 30px;
+    margin-top: 10px;
+}
+
+.portada{
+    position: absolute;
+    top:120px;
+    left: 50%;
+    margin-left: -448px;
+    background-color: #a6a6a6;
+    width: 896px;
+    height: 240px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    z-index: 1;
+}
+
+.portada img{
+    width: 895px;
+    height: 240px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+

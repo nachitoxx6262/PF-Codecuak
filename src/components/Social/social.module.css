@@ -1,0 +1,15 @@
+.socialContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color:#63686E;
+    min-height: 100vh;
+    /* padding-top: 50px; */
+}
+.containerPost{
+    display: flex;
+    justify-content: center;
+    box-shadow: 0px 0px 20px #191919;
+    background-color: #373640;
+    width: 915px;
+}

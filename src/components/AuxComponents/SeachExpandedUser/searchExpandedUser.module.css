@@ -1,0 +1,26 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 1px solid #63686E;
+    gap: 20px;
+    padding: 10px;
+    transition: .2s ease-out
+}
+
+.link{
+    text-decoration: none;
+    color: #B6F7C1;
+}
+
+.container:hover{
+    background-color: #63686E;
+    transition: .2s ease-out;
+}
+
+
+
+
+.imgContainer img{
+    height: 40px;
+}

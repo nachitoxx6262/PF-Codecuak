@@ -1,0 +1,93 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    margin: 15px;
+    width: 915px;
+    background-color: #373640;
+    border-radius: 10px;
+    gap: 10px;
+}
+
+.infoContainer {
+    color: #7e97a6;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    padding-bottom: 15px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #7e97a6;
+    gap: 10px;
+}
+
+.wrapper{
+    padding: 20px;
+}
+
+.infoContainer p {
+    font-size: 1.2em;
+    font-family: 'Ruda', sans-serif;
+}
+
+.imgContainer img {
+    height: 50px;
+}
+
+.imgContainer {
+    border-radius: 50%;
+    border: 2px solid #B6F7C1;
+    height: 50px;
+    width: 50px;
+    overflow: hidden;
+}
+
+.formContainer{
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.formContainer form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.formContainer textarea{
+    resize: none;
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 1.1em;
+    font-family: 'sen', sans-serif;
+    height: 120px;
+    width: 600px;
+    color: #7e97a6;
+}
+.formContainer div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    border-top: 1px solid #7e97a6;
+}
+
+.formContainer div button{
+    font-family: 'Ruda', sans-serif;
+    background-color: #63686e;
+    font-size: 1em;
+    border: none;
+    height: 30px;
+    width: 100px;
+    border-radius: 5px;
+    margin: 15px;
+    color: #B6F7C1;
+    margin-right: 5px;
+}
+
+.limitText{
+    color: red;
+}

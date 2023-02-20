@@ -1,0 +1,92 @@
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #373640;
+    width: 700px;
+    height: max-content;
+    padding: 10px;
+    border: solid 1.5px #B6F7C1;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px #191919;
+}
+.imagePost{
+    width: 90%;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.imagePost img{
+    border-radius: 10px;
+    max-width: 100%;
+    max-height: 100%;
+    box-shadow: 1px 1px 4px #191919,
+              -1px -1px 4px #292929;
+}
+.content{
+    width: 95%;
+    min-height: 100px;
+    padding: 10px;
+    color: #B6F7C1;
+    font-family: 'Dosis', sans-serif;
+    letter-spacing: 1px;
+    font-size: medium;
+    font-weight: 400;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+.likes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: solid 1.5px #B6F7C1;
+    height: 30px;
+    width: 15%;
+    font-size: large;
+    color: #B6F7C1;
+    margin-left: 80%;
+}
+
+.likes button{
+    background: none;
+    border: none;
+    font-size: large;
+    color: #B6F7C1;
+    margin-right: 5px;
+}
+
+.addComent{
+    display: flex;
+    justify-content: center;
+    border-top: solid 1.5px #63686e;
+    width: 100%;
+    height:max-content;
+}
+
+.userData{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 3px;
+    padding-left: 8px;
+    border-bottom: solid 1.5px #63686e;
+}
+
+.userData img{
+    max-width: 30px;
+    max-height: 30px;
+    border-radius: 3px;
+}
+
+.userData span{
+    padding: 8px;
+    font-family: 'Ruda', sans-serif;
+    color: #B6F7C1;
+}
+
+.comentarios{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

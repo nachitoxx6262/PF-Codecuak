@@ -1,0 +1,108 @@
+.divCont {
+  font-family: "Sen", sans-serif;
+  background-color: #232324;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.divCont h1 {
+  color: white;
+}
+.divForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 2rem auto;
+  width: 30rem;
+  background-color: #c5c5c5;
+  border-radius: 1rem;
+  font-family: "Sen", sans-serif;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 2rem;
+  width: 100%;
+  font-family: "Sen", sans-serif;
+
+}
+.form label{
+  font-size: 20px;
+}
+.input {
+  font-family: "Sen", sans-serif;
+}
+
+.input:focus {
+  background-color: #ccf7d3;
+  transition: ease-in 0.2s;
+}
+.message {
+  width: 20rem;
+  height: 8rem;
+  padding: 0.4rem;
+  border-radius: 1rem;
+  margin: 1rem auto;
+  resize: none;
+  font-family: "Sen", sans-serif;
+  font-size: 20px;
+  transition: ease-out 0.3s;
+}
+.message:focus {
+  background-color: #ccf7d3;
+  transition: ease-in 0.2s;
+}
+.btn {
+  width: 5rem;
+  height: 2rem;
+  border-radius: 1rem;
+  font-family: "Ruda", sans-serif;
+  font-size: 17px;
+  cursor: pointer;
+  color: #b6f7c1;
+  background-color: #373640;
+  border-color: #b6f7c1;
+  margin: auto;
+  transition: ease-out 0.3s;
+}
+.btn:hover {
+  background-color: #414448;
+  color: #b6f7c1;
+  transition: ease-in 0.2s;
+}
+.divBtn{
+  display: flex;
+  margin-left: 5rem;
+  margin-top: -20rem;
+}
+.homeBtn{
+  width: 8rem;
+  height: 3rem;
+  border-radius: 1rem;
+  font-family: "Ruda", sans-serif;
+  font-size: 17px;
+  cursor: pointer;
+  color:#b6f7c1;
+  background-color:#373640 ;
+  border-color: #b6f7c1;
+  transition: ease-out .3s;
+}
+.homeBtn:hover{
+  background-color: #414448;
+  color: #b6f7c1;
+  transition: ease-in .2s;
+}
+.textField{
+  margin:2rem
+  
+
+}
+.button{
+  background-color: #1E8449;
+}
