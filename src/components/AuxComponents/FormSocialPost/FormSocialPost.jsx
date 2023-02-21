@@ -30,7 +30,7 @@ const FormSocialPost = ({ user }) => {
   };
 
   return (
-    <Box className={style.codetext} fontFamily={"Sen"}>
+    <Box className={style.codetext} fontFamily={"Sen"} margin="15px">
       <Box  width="80%" display="flex" flexDirection="column" justifyContent="center" >
         <Box display="flex" gap="1rem">
           <Box>

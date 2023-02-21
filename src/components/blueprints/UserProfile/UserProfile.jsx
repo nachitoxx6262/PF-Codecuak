@@ -1,7 +1,7 @@
 //estilos css
 import styles from "./userProfile.module.css"
 // dependencias MUI
-import { Box, Avatar, Typography, Divider } from "@mui/material"
+import { Box, Typography, Divider } from "@mui/material"
 // componentes
 import CardUser from "../../AuxComponents/CardUser/CardUser";
 import PostUserContainer from "../../AuxComponents/PostUserContainer/PostUserContainer";
@@ -38,44 +38,45 @@ const UserProfile = ({userData}) => {
                         <Box className={styles.title}>
                             <Typography>Mis habilidades:</Typography>
                         </Box>
-                    </Box>
-                    <Box className={userData.TechnicalSkills}>
-                        <Typography>Technical Skills:</Typography>
-                        <Box>
-                            <ul>
-                                {userData.technicalSkills?.map((skill) => {
-                                    return (
-                                        <li>{skill}</li>
-                                    )
-                                })}
-                            </ul>
+                        <Box className={styles.TechnicalSkills}>
+                            <Typography>Technical Skills:</Typography>
+                            <Box>
+                                <ul>
+                                    {userData.softSkills?.map((skill) => {
+                                        return (
+                                            <li>{skill}</li>
+                                            )
+                                        })}
+                                </ul>
+                            </Box>
+                        </Box>
+                        <Box className={styles.SoftSkills}>
+                            <Typography>Soft Skills:</Typography>
+                            <Box>
+                                <ul>
+                                    {userData.softSkills?.map((skill) => {
+                                        return (
+                                            <li>{skill}</li>
+                                            )
+                                        })}
+                                </ul>
+                            </Box>
                         </Box>
                     </Box>
-                    <Box className={styles.SoftSkills}>
-                        <Typography>Soft Skills:</Typography>
+                    <Divider orientation="vertical" flexItem/>
+                    <Box className={styles.containerExperience}>
+                        <Box className={styles.title}>
+                            <Typography>Mis experiencias:</Typography>
+                        </Box>
                         <Box>
                             <ul>
-                                {userData.softSkills?.map((skill) => {
+                                {userData.experiences?.map((exp) => {
                                     return (
-                                        <li>{skill}</li>
-                                    )
-                                })}
+                                        <li>{exp}</li>
+                                        )
+                                    })}
                             </ul>
                         </Box>
-                    </Box>
-                </Box>
-                <Box className={styles.containerExperience}>
-                    <Box className={styles.title}>
-                        <Typography>Mis experiencias:</Typography>
-                    </Box>
-                    <Box>
-                        <ul>
-                            {userData.experiences?.map((exp) => {
-                                return (
-                                    <li>{exp}</li>
-                                )
-                            })}
-                        </ul>
                     </Box>
                 </Box>
                 <Divider variant="middle" sx={{ borderBottomWidth: 2 }}/>

@@ -92,7 +92,7 @@ const NavBar = () => {
         sx={{ backgroundColor: "#1E8449" }}
       >
         <Box display="flex" justifyContent="space-around" alignItems="center">
-          <Box>
+          <Box >
             <Link to={"/"}>
               <img height="70px" src={logo} alt="loguito" />
             </Link>

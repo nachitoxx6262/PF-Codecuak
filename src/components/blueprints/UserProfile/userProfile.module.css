@@ -48,12 +48,16 @@
 }
 .containerExperience{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
     flex-wrap: wrap;
     width: 40%;
     padding-bottom:10px;
-    padding-left: 20px;
+    margin-left: 10px;
+}
+
+.containerExperience ul{
+    margin-left: 20px;
 }
 
 .title{
@@ -63,10 +67,9 @@
 
 .TechnicalSkills{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     width: 50%;
     padding-top: 10px;
-
 }
 .TechnicalSkills div{
     display: flex;

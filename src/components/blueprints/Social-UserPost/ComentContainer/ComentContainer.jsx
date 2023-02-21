@@ -5,28 +5,31 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 //componentes
 import CardComent from "../CardComent/CardComent.jsx";
+import AddComent from "../AddComent/AddComent";
+import { Box } from "@mui/system";
+import { Button } from "@mui/material";
 
-const ComentContainer=({socialcomments})=>{
-    const userData = useSelector((state)=>state.userData)
-    const [viewComents, setViewComents] = useState(false);
+const ComentContainer = ({ socialcomments, image, userdevId, postId }) => {
+    const userData = useSelector((state) => state.userData)
 
-    const selectClass=()=>{
-        return(
-            socialcomments.length ? styles.buttonOn : styles.buttonOff
-        )
-    }
 
-    return(
 
-        <div className={styles.container}>
+    return (
 
-            <button className={selectClass()} onClick={()=>setViewComents(!viewComents)}>Comentarios</button>
-            
-            {viewComents ? socialcomments?.map((comment)=><CardComent comment = {comment} userData={userData}/>) :
-            <></>
-            }
+        <Box>
+            <Box>
+                <AddComent
+                    userData={userData}
+                    image={image}
+                    userdevId={userdevId}
+                    postId={postId} />
 
-        </div>
+                {
+                    socialcomments?.map((comment) => <CardComent comment={comment} userData={userData} />)
+                }
+            </Box>
+
+        </Box>
     )
 }
 
