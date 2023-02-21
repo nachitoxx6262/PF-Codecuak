@@ -1,6 +1,7 @@
 //estilos
 import style from "./NavBar.module.css";
 //hooks
+import { useAuth0 } from "@auth0/auth0-react";
 import * as React from 'react';
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -28,7 +29,8 @@ import {
 import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 
 const NavBar = () => {
-  const settings = [{name:"Perfil",link:"/user"},{ name:"Cuenta",link:""},{ name:"Cerrar Sesion",link:""}];
+  const { logout } = useAuth0();
+  const settings = [{name:"Perfil",link:"/user"},{ name:"Cuenta",link:""}];
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -210,7 +212,10 @@ const NavBar = () => {
                 </MenuItem>
                   </Link>
               ))}
-            </Menu>
+              <MenuItem onClick={() => logout({ logoutParams: { returnTo: "http://localhost:5173/" } })}>
+                  <Typography textAlign="center">Cerrar Sesión</Typography>
+                </MenuItem>
+                          </Menu>
           </Box>
         </Box>
       </AppBar>

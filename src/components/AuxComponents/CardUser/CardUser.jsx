@@ -1,23 +1,27 @@
+//estilos css
 import style from "./CardUser.module.css"
+// dependencias MUI
+import { Box, Avatar, Typography } from "@mui/material"
 
 const Card=({ userData })=>{
     return(
        
-        <div className={style.container}>
-            <div className={style.containerImg}>
-                <img src={userData.image} alt="Foto de perfil" />
-            </div>
-            <div className={style.containerData}>
-                <div className={style.name}>
-                    <h2>{`${userData.name}`}</h2>
-                    <h3>{` (${userData.nickName})`}</h3>
-                </div>
-                <div className={style.contacts}>
-                    <h4>{userData.email}</h4>
-                    <h4>{`GitHub: ${userData.gitHub}`}</h4>
-                </div>
-            </div>
-        </div>
+        <Box className={style.container}>
+            <Box className={style.containerImg}>
+                <Avatar src={userData.image} alt="foto del usuario" sx={{width:160, height:160}} variant="rounded" />
+            </Box>
+            <Box className={style.containerData}>
+                <Box className={style.name}>
+                    <Typography variant="h5" fontFamily={"Sen"}>{`${userData.name}`}</Typography>
+                    <Typography variant="h5 " fontFamily={"Sen"}>{` (${userData.nickName})`}</Typography>
+                </Box>
+                <Box className={style.contacts}>
+                  <Typography variant="h7" fontFamily={"Sen"}>{userData.email}</Typography>
+                  <Typography variant="h7" fontFamily={"Sen"}>{`GitHub: ${userData.gitHub}`}</Typography>
+                </Box>
+            </Box>
+
+        </Box>
        
     )
 

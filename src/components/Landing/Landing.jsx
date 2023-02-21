@@ -12,6 +12,7 @@ import TerminalIcon from "@mui/icons-material/Terminal";
 import {List,ListItem } from "@mui/material";
 //componentes
 import LoginButton from "../blueprints/buttonsAuth/LoginButton";
+import LogOutButton from "../blueprints/buttonsAuth/LogOutButton";
 import logo from "../../Media/logo-03.png";
 import Footer from "../blueprints/Footer/Footer";
 
@@ -76,7 +77,8 @@ const Landing = () => {
         </List>
         </Box>
         <Box className={styles.loginbtn}>
-          {isAuthenticated ? <LogoutButton /> : <LoginButton />}
+
+          {isAuthenticated ? <LogOutButton /> : <LoginButton />}
         </Box>
       </Box>
 
