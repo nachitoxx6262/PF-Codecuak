@@ -1,25 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Ruda&display=swap');
 
-.container{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    background-color: #373640;
-    z-index: 10000;
-}
-
-.navContainer {
-    font-family: 'Ruda', sans-serif;;
-    display: flex;
-    max-width: 1500px;
-    width: 100%;
-    height: 70px;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    background-color: #373640;
-    position: relative;
-}
 
 .searchContainer {
     display: flex;
@@ -28,13 +8,13 @@
     padding: 10px;
     border-radius: 10px;
     gap: 10px;
-    background-color: #63686E;
+    background-color: rgb(255, 255, 255);
     position: relative;
 }
 
 .searchContainer input {
-    background-color: rgb(99, 104, 110);
-    color: #B6F7C1;
+    background-color: rgb(255, 255, 255);
+    color: #000000;
     border: none;
     height: 20px;
     outline: none;
@@ -42,11 +22,11 @@
 }
 
 .searchContainer input::placeholder{
-    color: #7e97a6;
+    color: #1E8449;
 }
 
 .searchContainer i {
-    color: #B6F7C1;
+    color: #1E8449;
 }
 
 .ulContainer ul {
@@ -62,7 +42,7 @@
 }
 
 .ulContainer li:hover{
-    background-color: #63686E;
+    background-color: #1E8449;
     border-radius: 5px;
     transition: ease-in .2s;
 }
@@ -70,7 +50,7 @@
 .ulContainer a {
     text-decoration: none;
     font-size: 1.1em;
-    color: #B6F7C1;
+    color: #1E8449;
 }
 
 .iconsContainer {
@@ -98,7 +78,7 @@
 .notiExpanded{
     height: 600px;
     width: 350px;
-    background-color: #373640;
+    background-color: #1E8449;
     position: absolute;
     top: 70px;
     right: 20px;
@@ -120,7 +100,7 @@
 
 .notiHeader{
     height: 40px;
-    border-bottom: 1px solid#63686E;
+    border-bottom: 1px solid#1E8449;
     color: #7e97a6;
 }
 
@@ -132,12 +112,12 @@
 }
 
 .searchExpanded{
-    background-color:#373640 ;
+    background-color:#3d7554 ;
     display: flex;
     justify-content: center;
     flex-direction: column;
     position: absolute;
-    width: 400px;
+    width: 250px;
     top: 90%;
     left: 0;
     z-index: 9000;

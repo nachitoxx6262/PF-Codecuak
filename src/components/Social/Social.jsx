@@ -26,7 +26,7 @@ const Social = () => {
     <>
       <Box bgcolor="#D5DBDB" display="flex" flexDirection="column" alignItems="center">
         <NavBar />
-        <FormSocialPost user = {user}/>
+        <FormSocialPost user={user}/>
         <PostSocialContainer />
       </Box>
     </>
