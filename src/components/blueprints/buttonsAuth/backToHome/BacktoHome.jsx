@@ -1,16 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Button from "@mui/material/Button"
-
+import { Button } from '@mui/material'
 const BacktoHome = () => {
   return (
-    <div >
+    <div>
         <Link to="/" style={{"textDecoration":"none"}}>
         <Button color="success" variant="outlined" sx={{fontWeight:"bold"}}>Volver al Home</Button>
         </Link>
-      </div>
+    </div>
   )
 }
 
 export default BacktoHome
-

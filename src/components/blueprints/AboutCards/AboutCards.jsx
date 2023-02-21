@@ -81,7 +81,6 @@ const AboutCards = () => {
               
             />
             </Box>
-
             <Box display="flex" flexDirection="column" justifyContent="center" width="80%">
               <Typography variant="h4" fontFamily={"Sen"} align="center" fontWeight="bold">{element.name}</Typography>
               <Typography variant="body1" color="textPrimary" align="center">{element.descripcion}</Typography>
