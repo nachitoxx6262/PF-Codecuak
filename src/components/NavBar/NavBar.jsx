@@ -25,8 +25,7 @@ import {
   Menu,
   IconButton,
 } from "@mui/material";
-import AdbIcon from "@mui/icons-material/Adb";
-import MenuIcon from "@mui/icons-material/Menu";
+import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 
 const NavBar = () => {
   const settings = [{name:"Perfil",link:"/user"},{ name:"Cuenta",link:""},{ name:"Cerrar Sesion",link:""}];
@@ -154,7 +153,7 @@ const NavBar = () => {
 
           <Box className={style.iconsContainer}>
             <button onClick={handlerNotifications}>
-              <i className="fa-sharp fa-solid fa-layer-group fa-xl" />
+            <NotificationsActiveIcon sx={{color:"white"}}/>
             </button>
           </Box>
           <Box
