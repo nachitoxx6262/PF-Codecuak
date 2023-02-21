@@ -9,6 +9,7 @@ import ConnectWithoutContactIcon from "@mui/icons-material/ConnectWithoutContact
 import WorkspacesIcon from "@mui/icons-material/Workspaces";
 import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
 import TerminalIcon from "@mui/icons-material/Terminal";
+import {List,ListItem } from "@mui/material";
 //componentes
 import LoginButton from "../blueprints/buttonsAuth/LoginButton";
 import logo from "../../Media/logo-03.png";
@@ -18,6 +19,7 @@ const Landing = () => {
   const data = [
     {
       id:"social",
+      link:"/social",
       title: "socialCuak",
       color: "#dce3e3",
       secondTitle: "Aquí podrás expresarte",
@@ -27,6 +29,7 @@ const Landing = () => {
     },
     {
       id:"Q&A",
+      link:"/qanda",
       title: "Q&A-Cuak",
       color: "#D5DBDB",
       secondTitle: "Para crecer necesitamos ayudarnos entre todos",
@@ -36,6 +39,7 @@ const Landing = () => {
     },
     {
       id:"work",
+      link:"/work",
       title: "workCuak",
       color: "#dce3e3",
       secondTitle: "La programación es un trabajo de equipo",
@@ -45,6 +49,8 @@ const Landing = () => {
     },
     {
       id:"hiring",
+      link:"/hiring",
+
       title: "hiringCuak",
       color: "#D5DBDB",
       secondTitle:
@@ -61,21 +67,13 @@ const Landing = () => {
         <a href="#code">
           <img src={logo} alt="logofooter" className={styles.logoFooter} />
         </a>
-        <Box className={styles.ul}>
-          <ul>
-            <li>
-              <a href="#social">socialCuak</a>
-            </li>
-            <li>
-              <a href="#Q&A">Q&A-Cuak</a>
-            </li>
-            <li>
-              <a href="#work">workCuak</a>
-            </li>
-            <li>
-              <a href="#hiring">hiringCuak</a>
-            </li>
-          </ul>
+        <Box>
+        <List component="ul" className={styles.navul}>
+        <ListItem ><a href="#social"className={styles.a} >{">_"}socialCuak</a></ListItem>
+        <ListItem><a href="#Q&A" className={styles.a} >{">_"}Q&A-Cuak</a></ListItem>
+        <ListItem ><a href="#work" className={styles.a} >{">_"}hiringCuak</a></ListItem>
+        <ListItem><a href="#hiring" className={styles.a}>{">_"}workCuak</a></ListItem>
+        </List>
         </Box>
         <Box className={styles.loginbtn}>
           {isAuthenticated ? <LogoutButton /> : <LoginButton />}
@@ -152,7 +150,7 @@ const Landing = () => {
                 </Box>
               </Box>
               <Box display="flex" alignItems="center" justifyContent="center" height="10rem">
-                <Link to="/social" style={{ textDecoration: "none" }}>
+                <Link to={element.link} style={{ textDecoration: "none" }}>
                   <Button
                   style={{ width: 200, height: 70, fontSize:20, marginTop:100, gap:15}}
                   size="large"

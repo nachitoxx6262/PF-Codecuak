@@ -69,27 +69,30 @@ const AboutCards = () => {
     <div className={Style.sectionsContenedor}>
       {developers?.map((element) => {
         return (
-          <Box
+          <Box width="35rem"
             sx={{ backgroundColor: "white", padding: "16px",  boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.20)',}}
             display="flex"
           >
+            <Box width="20%">
             <Avatar
               alt={element.name}
               src={element.img}
               sx={{ width: 100, height: 100 }}
               
             />
-            <Box marginLeft={2}>
-              <h2>{element.name}</h2>
+            </Box>
+
+            <Box display="flex" flexDirection="column" justifyContent="center" width="80%">
+              <Typography variant="h4" fontFamily={"Sen"} align="center" fontWeight="bold">{element.name}</Typography>
               <Typography variant="body1" color="textPrimary" align="center">{element.descripcion}</Typography>
-              <div className={Style.divlogos}>
-                <Link to={element.github}>
+              <Box display="flex" justifyContent="center" gap="10px" margin="5px">
+                <Link to={element.github} style={{textDecoration:"none", color:"black"}}>
                   <i class="fa-brands fa-github fa-xl"></i>
                 </Link>
-                <Link to={element.linkdin}>
+                <Link to={element.linkdin} style={{textDecoration:"none", color:"black"}}>
                   <i class="fa-brands fa-linkedin fa-xl"></i>
                 </Link>
-              </div>
+              </Box>
             </Box>
           </Box>
         );
