@@ -9,7 +9,8 @@ import { getUserById } from "../../redux/action";
 import NavBar from '../NavBar/NavBar';
 import FormSocialPost from "../AuxComponents/FormSocialPost/FormSocialPost";
 import PostSocialContainer from "../AuxComponents/PostSocialContainer/PostSocialContainer";
-
+// import MATERIAL UI
+import {Box} from "@mui/material"
 const Social = () => {
 
   const user = useSelector(state => state.userData)
@@ -23,11 +24,11 @@ const Social = () => {
   console.log(user);
   return (
     <>
-      <div className={style.socialContainer}>
+      <Box bgcolor="#D5DBDB" display="flex" flexDirection="column" alignItems="center">
         <NavBar />
         <FormSocialPost user = {user}/>
         <PostSocialContainer />
-      </div>
+      </Box>
     </>
   )
 }

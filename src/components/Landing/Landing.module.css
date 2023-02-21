@@ -60,16 +60,6 @@ a:hover::after {
   transform: translate3d(0, 0, 0);
 }
 
-/* Presentational Styles */
-body {
-  display: grid;
-  font-family: 'Poppins', sans-serif;
-  font-size: 27px;
-  line-height: 1.5;
-  height: 100vh;
-  place-items: center;
-}
-
 
 .loginbtn {
   display: flex;
