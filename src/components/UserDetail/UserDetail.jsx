@@ -12,7 +12,7 @@ const UserDetail = () => {
   const userDetail = useSelector(state => state.userDetail)
 
   const { id } = useParams();
-  console.log(userDetail);
+
   useEffect(() => {
     dispatch(getUserDetailById(id))
   }, [dispatch])

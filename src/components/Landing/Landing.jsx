@@ -156,7 +156,6 @@ const Landing = () => {
                   <Button
                   style={{ width: 200, height: 70, fontSize:20, marginTop:100, gap:15}}
                   size="large"
-                 
                     color="success"
                     variant="contained"
                     sx={{ fontWeight: "bold",fontSize:"100" }}

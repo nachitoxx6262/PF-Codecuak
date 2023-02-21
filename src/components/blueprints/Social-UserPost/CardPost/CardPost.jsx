@@ -30,6 +30,7 @@ const CardPost = ({ post,userData }) => {
     <>
       <div className={styles.container}>
         <div className={styles.userData}>
+      
           <img src={image} alt="Foto de perfil" />
           <span>{name}</span>
         </div>
@@ -63,6 +64,7 @@ const CardPost = ({ post,userData }) => {
           />
         </div>
         <div className={styles.comentarios}>
+          
           <ComentContainer socialcomments={socialcomments}/>
         </div>
       </div>
