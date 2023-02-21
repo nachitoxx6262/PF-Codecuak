@@ -21,7 +21,6 @@ const Social = () => {
     // dispatch(fetchUser) hardcodeado hasta tener inicio de sesion
     dispatch(getUserById("2e7f46cd-6f32-43df-99b9-060b7edeab7e"));
   }, [dispatch])
-  console.log(user);
   return (
     <>
       <Box bgcolor="#D5DBDB" display="flex" flexDirection="column" alignItems="center">

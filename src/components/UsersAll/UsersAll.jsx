@@ -1,5 +1,5 @@
 //estilos
-import Style from "./UsersAll.module.css";
+import styles from "./UsersAll.module.css";
 //hooks
 import { useEffect, useState } from "react";
 import { getAllUsers } from "../../redux/action";
@@ -28,7 +28,7 @@ const UsersAll = () => {
     buttons.push(
       <button
         key={i}
-        className={pages == i ? Style.button : Style.buttonNone}
+        className={pages == i ? styles.buttonNumber : styles.buttonNumberNone}
         value={i}
         onClick={handleClick}
       >
@@ -46,26 +46,42 @@ const UsersAll = () => {
 
   
   return (
-    <div>
+    <div className={styles.background}>
       <NavBar />
-      {data.results?.map((user) => {
-
-        return <Users 
-          key={user.id}
-          name={user.name} 
-          image={user.image} 
-          id={user.id}
-
-        />;
-
-      })}
-      {buttons}
-      <button name="asc" className={Style.asc} onClick={handleChange} >
-        ASC
-      </button>
-      <button name="desc" className={Style.asc} onClick={handleChange}>
-        DESC
-      </button>
+      <div className={styles.containerOrderer}>
+        <div className={styles.orderButtons}>
+          <button name="asc" onClick={handleChange} >
+            ASC
+          </button>
+          <button name="desc" onClick={handleChange}>
+            DESC
+          </button>
+        </div>
+      </div>
+      <div className={styles.container}>
+        <div className={styles.subContainer}>
+          <div className={styles.containerCards}>
+            {data.results?.map((user) => {
+              
+              return <Users 
+              key={user.id}
+              name={user.name} 
+              image={user.image} 
+              id={user.id}
+              
+              />;
+              
+            })}
+          </div>
+          <div className={styles.containerPaginated}>
+            <div>
+              {buttons}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className={styles.containerOrderer}>
+      </div>
     </div>
   );
 };

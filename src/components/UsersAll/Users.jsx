@@ -6,14 +6,14 @@ import { Link } from "react-router-dom"
 import logo from "../../Media/logo-03.png"
 const Users = ({ name, image, id }) => {
   return (
-    <div>
-      <Link to={`/users/${id}`}>
-        <h1>{name}</h1>
+    <div className={styles.container}>
+      <Link to={`/users/${id}`} className={styles.link}>
         {image ?
           <img src={image} className={styles.img} />
           :
           <img src={logo} className={styles.img} />
         }
+        <h1>{name}</h1>
       </Link>
     </div>
   )

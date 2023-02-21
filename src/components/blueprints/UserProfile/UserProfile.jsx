@@ -5,7 +5,7 @@ import PostUserContainer from "../../AuxComponents/PostUserContainer/PostUserCon
 
 const UserProfile = ({userData}) => {
 
-
+console.log(userData);
     // imagenes portada y perfil por default
     const portadaDefault = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTZZeLZAzPyAtBhCUl384gDJYN3ROMfPXtPDUlu3QAX9gyEEX6';
     const imageDefault = 'https://st2.depositphotos.com/19428878/44645/v/600/depositphotos_446453832-stock-illustration-default-avatar-profile-icon-social.jpg';
