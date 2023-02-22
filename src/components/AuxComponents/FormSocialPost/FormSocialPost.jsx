@@ -45,13 +45,13 @@ const FormSocialPost = ({ user }) => {
             <TextField
               fullWidth
               id="outlined-multiline-static"
-              label="Mensaje"
+              label="Que te gustaria postear?"
               multiline
-            
               rows={4}
               margin="normal"
               required
               onChange={handlerChange}
+              color="success"
             />
             <Box display="flex" flexDirection="column" alignItems="center">
               {text > 1400 ? (

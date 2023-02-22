@@ -4,9 +4,10 @@ import styles from "./AddComent.module.css";
 import { useState } from "react";
 //actions
 import { sendComment } from "../../../../axiosFunctions";
+import { Avatar, Box, Button, TextField } from "@mui/material";
 
 const AddComent = (props) => {
-    const {userData,image,userdevId,postId} = props
+    const { userData, image, userdevId, postId } = props
     const [coment, setComent] = useState("")
     const handlerChange = (event) => {
         const value = event.target.value;
@@ -19,20 +20,20 @@ const AddComent = (props) => {
         setComent("");
     }
 
-    const selectClass=()=>{
-        return(
-            coment.length ? styles.buttonOn : styles.buttonOff
-        )
-    }
-
     return (
-        <div className={styles.container}>
-            <img src={userData} alt="" />
-            <form action="" className={styles.form} onSubmit={submitHandler}>
-                <textarea type="text" placeholder="Escribe un comentario..." onChange={handlerChange} value={coment} />
-                <button id="submit" type="submit" className={selectClass()}>Enviar</button>
-            </form>
-        </div>
+        <Box display="flex" alignItems="center"  gap="15px" width={1}>
+            <Avatar src={userData} alt={`Imagen de perfil de ${userData.id}`}/>
+            <TextField
+                id="outlined-multiline-static"
+                placeholder="Escribe un comentario"
+                value={coment}
+                onChange={handlerChange}
+                fullWidth
+                rows={3}
+                color="success"
+            />
+            <Button id="submit" onClick={submitHandler} color="success" variant="contained">Enviar</Button>
+        </Box>
     )
 }
 

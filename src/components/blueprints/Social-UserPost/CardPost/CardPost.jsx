@@ -45,17 +45,18 @@ const CardPost = ({ post, userData }) => {
         borderRadius="10px"
         padding="1em"
         boxShadow="3"
+        gap="15px"
       >
-        <Box display="flex" flexDirection="row" gap="15px" alignSelf="start" marginBottom="10px">
+        <Box display="flex" flexDirection="row" gap="15px" alignSelf="start" >
           <Avatar src={image} alt="Foto de perfil" />
           <Typography fontFamily="sen" variant="h6" color="black">{name}</Typography>
         </Box>
-        <Box width="90%">
+        <Box width="90%" >
           <Typography fontFamily="Sen" variant="body1" color="black" fontSize="1.1em">{content}</Typography>
         </Box>
-        <Box display="flex" flexDirection="row" alignItems="center" alignSelf="end" marginRight="3.2em" gap="10px">
-          <Button onClick={() => handlerClick()} sx={{ color: "#1E8449" }}> {likeState ? <FavoriteIcon /> : <FavoriteBorderIcon />} <Typography variant="body1">{like}</Typography></Button>
-          <Button onClick={() => {handlerComment()}}>Comentar</Button>
+        <Box display="flex" flexDirection="row" alignItems="center" alignSelf="start" marginLeft="20px" gap="10px">
+          <Button onClick={() => handlerClick()} sx={{ color: "#1E8449" }}> {likeState ? <FavoriteIcon /> : <FavoriteBorderIcon />}</Button>
+          <Button onClick={() => {handlerComment()}} color="success">Comentar</Button>
         </Box>
         {
           viewComents ? 

@@ -16,13 +16,15 @@ const ComentContainer = ({ socialcomments, image, userdevId, postId }) => {
 
     return (
 
-        <Box>
-            <Box>
+        <Box width={1}>
+            <Box display="flex" flexDirection="column" justifyContent="center" gap="15px">
                 <AddComent
                     userData={userData}
                     image={image}
                     userdevId={userdevId}
-                    postId={postId} />
+                    postId={postId} 
+                    />
+                    
 
                 {
                     socialcomments?.map((comment) => <CardComent comment={comment} userData={userData} />)

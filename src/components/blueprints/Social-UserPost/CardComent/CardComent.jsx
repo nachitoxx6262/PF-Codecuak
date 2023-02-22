@@ -2,24 +2,39 @@
 import styles from "./CardComent.module.css"
 //hooks
 import { useState } from "react";
+import { Avatar, Box, Button, Typography } from "@mui/material";
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
-const CardComent=({comment,userData})=>{
-    
+const CardComent = ({ comment, userData }) => {
+
     const [like, setStatuslike] = useState(false);
-    return(
-        <div className={styles.container}>
-            <div className={styles.containerData}>
-                <img src={userData.image} alt="Foto de usuario" />
-                <h4>{ userData.name }</h4>
-            </div>
-            <div className={styles.coment}>
-                <p>{ comment.content }</p>
-            </div>
-            <div className={styles.likes}>
-                <button className={like? "fa-sharp fa-solid fa-heart" : "fa-sharp fa-regular fa-heart"} onClick={()=>setStatuslike(!like)}/>
-                <span>{comment.likes} </span>
-            </div>
-        </div>
+
+    const handlerClick = () => {
+        setStatuslike(!like)
+    }
+    return (
+        <Box display="flex"
+            flexDirection="column"
+            bgcolor="#f2f2f2"
+            borderRadius="10px"
+            padding="1em"
+            boxShadow="5"
+            width="100%"
+            gap="10px"
+            >
+
+            <Box display="flex" gap="15px" alignItems="center">
+                <Avatar src={userData.image} alt="Foto de usuario" sx={{ width: "30px", height: "30px" }} />
+                <Typography variant="body1" fontFamily="Sen">{userData.name}</Typography>
+            </Box>
+            <Box marginLeft="1.1em">
+                <Typography variant="body2">{comment.content}</Typography>
+            </Box>
+            <Box >
+                <Button onClick={() => handlerClick()} sx={{ color: "#1E8449" }}> {like ? <FavoriteIcon /> : <FavoriteBorderIcon />}</Button>
+            </Box>
+        </Box>
     )
 }
 
