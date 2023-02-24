@@ -23,36 +23,13 @@ const Social = () => {
   // para luego utilizarlo en las cards de los posts y pagina de perfil
   useEffect(() => {
     // dispatch(fetchUser) hardcodeado hasta tener inicio de sesion
-<<<<<<< HEAD
     dispatch(getUserById(token));
-=======
-    dispatch(getUserById("f3e9fb53-d49a-45ad-8276-8ad97ba76c59"));
->>>>>>> b20a88a8db96a93482266089c1330ff82ab9dde2
   }, [dispatch])
   return (
     <>
-<<<<<<< HEAD
    <Box bgcolor="#D5DBDB" display="flex" flexDirection="column" alignItems="center">
     <NavBar /><FormSocialPost user={user}/>
     <PostSocialContainer /></Box>
-=======
-      {
-        isAuthenticated ?
-          <Box
-            bgcolor="#D5DBDB"
-            display="flex"
-            flexDirection="column"
-            alignItems="center"
-          >
-
-            <NavBar />
-            <FormSocialPost user={user} />
-            <PostSocialContainer />
-
-          </Box>
-          : loginWithRedirect()
-      }
->>>>>>> b20a88a8db96a93482266089c1330ff82ab9dde2
     </>
   )
 }
