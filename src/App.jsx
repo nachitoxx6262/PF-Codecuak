@@ -11,7 +11,14 @@ import Terminos from "./components/Terminos/Terminos";
 import Contacto from "./components/Contacto/Contacto";
 import UsersAll from "./components/UsersAll/UsersAll";
 import UserDetail from "./components/UserDetail/UserDetail";
+import Donaciones from "./components/blueprints/Donaciones/Donaciones";
+<<<<<<< HEAD
+import LogIn from "./FirebaseAuth/LogIn";
+import Register from "./FirebaseAuth/Register";
+=======
+import Feedback from "./components/blueprints/Donaciones/Gracias";
 
+>>>>>>> 20ebdf00b3066db4a522ff3fe4c7356b53256a25
 function App() {
   return (
     <div className="App">
@@ -27,6 +34,13 @@ function App() {
         <Route exact path="/contacto" element={<Contacto />} />
         <Route exact path="/users" element={<UsersAll />} />
         <Route exact path="/users/:id" element = {<UserDetail/>}/>
+        <Route exact path="/donaciones" element={<Donaciones/>}/>
+<<<<<<< HEAD
+        <Route exact path="/login" element={<LogIn/>}/>
+        <Route exact path="/register" element={<Register/>}/>
+=======
+        <Route exact path="/gracias" element={<Feedback/>}/>
+>>>>>>> 20ebdf00b3066db4a522ff3fe4c7356b53256a25
       </Routes>
     </div>
   );

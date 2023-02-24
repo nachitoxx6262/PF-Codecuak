@@ -30,18 +30,22 @@ const URL = {
 // POSTEOS  🛑
 // GET ALL POST
 // solamente vamos a tener los post con la info usuario
-export const getAllPost = () => {
+export const getAllPost = (token) => {
   return function (dispatch) {
-    axios.get(URL.URL_SOCIAL).then((response) => {
+    axios.get(URL.URL_SOCIAL,{
+      headers: {'x-auth-token': token}}).then((response) => {
       dispatch({ type: GET_ALL_POST, payload: response.data });
     });
   };
 };
+
+
 //GET POST BY USERID
 //Los filtramos en el FRONT hasta que los del back hagan el filtro
-export const getPostByUserId = (userId) => {
+export const getPostByUserId = async(userId,token) => {
   return function (dispatch) {
-    axios.get(URL.URL_SOCIAL).then((response) => {
+    axios.get(URL.URL_SOCIAL,{
+      headers: {'x-auth-token': token}}).then((response) => {
       const data = response.data.filter((post) => post.userdevId == userId);
       dispatch({ type: GET_ALL_POST, payload: data });
     });
@@ -119,7 +123,7 @@ export const destroyDeleteComment = ({ commentId }) => {
 
 // USERS  🛑
 // GET USERS BY ID
-export const getUserById = (userId) => {
+export const getUserById = (token) => {
   return async function (dispatch) {
     const data = await axios.get(`${URL.URL_USERS}/${userId}`);
     return dispatch({ type: GET_BYID_USER, payload: data.data});
@@ -161,4 +165,6 @@ export const getUserDetailById = (userId) => {
     return dispatch({ type: GET_BYID_USER_DETAIL, payload: data.data});
   };
 };
+
+
 

@@ -8,6 +8,7 @@ import ComentContainer from "../ComentContainer/ComentContainer";
 import { Avatar, Box, Button, Typography, } from "@mui/material";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import LongMenu from "../../LongMenu/LongMenu";
 
 
 const CardPost = ({ post, userData }) => {
@@ -39,28 +40,31 @@ const CardPost = ({ post, userData }) => {
       <Box
         display="flex"
         flexDirection="column"
-        width="48%"
         alignItems="center"
+        width="48%"
         bgcolor="#f2f2f2"
         borderRadius="10px"
         padding="1em"
         boxShadow="3"
         gap="15px"
       >
-        <Box display="flex" flexDirection="row" gap="15px" alignSelf="start" >
-          <Avatar src={image} alt="Foto de perfil" />
-          <Typography fontFamily="sen" variant="h6" color="black">{name}</Typography>
+        <Box display="flex" flexDirection="row" alignItems="start" width={1}>
+          <Box display="flex" gap="15px" alignItems="center" flexGrow={1}>
+            <Avatar src={image} alt="Foto de perfil" />
+            <Typography fontFamily="sen" variant="h6" color="black">{name}</Typography>
+          </Box>
+          {post.userdevId === userData.id ? <LongMenu post={post}/> : null}
         </Box>
         <Box width="90%" >
           <Typography fontFamily="Sen" variant="body1" color="black" fontSize="1.1em">{content}</Typography>
         </Box>
         <Box display="flex" flexDirection="row" alignItems="center" alignSelf="start" marginLeft="20px" gap="10px">
           <Button onClick={() => handlerClick()} sx={{ color: "#1E8449" }}> {likeState ? <FavoriteIcon /> : <FavoriteBorderIcon />}</Button>
-          <Button onClick={() => {handlerComment()}} color="success">Comentar</Button>
+          <Button onClick={() => { handlerComment() }} color="success">Comentar</Button>
         </Box>
         {
-          viewComents ? 
-          <ComentContainer socialcomments={socialcomments} image={image} userdevId={userdevId} postId={id} /> : null
+          viewComents ?
+            <ComentContainer socialcomments={socialcomments} image={image} userdevId={userdevId} postId={id} /> : null
         }
       </Box>
     </>

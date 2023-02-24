@@ -72,8 +72,9 @@ const Landing = () => {
         <List component="ul" className={styles.navul}>
         <ListItem ><a href="#social"className={styles.a} >{">_"}socialCuak</a></ListItem>
         <ListItem><a href="#Q&A" className={styles.a} >{">_"}Q&A-Cuak</a></ListItem>
-        <ListItem ><a href="#work" className={styles.a} >{">_"}hiringCuak</a></ListItem>
-        <ListItem><a href="#hiring" className={styles.a}>{">_"}workCuak</a></ListItem>
+        <ListItem ><a href="#work" className={styles.a} >{">_"}workCuak</a></ListItem>
+        <ListItem><a href="#hiring" className={styles.a}>{">_"}hiringCuak</a></ListItem>
+        <ListItem><Link to="/donaciones" className={styles.a}>{">_"}donaciones</Link></ListItem>
         </List>
         </Box>
         <Box className={styles.loginbtn}>

@@ -4,7 +4,6 @@ import style from "./formSocialPost.module.css";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { sendPost } from "../../../axiosFunctions";
-import { getAllPost } from "../../../redux/action";
 import { useAuth0 } from "@auth0/auth0-react";
 // componentes
 // IMPORT MATERIAL UI

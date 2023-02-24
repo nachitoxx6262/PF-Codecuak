@@ -8,7 +8,7 @@ const Card=({ userData })=>{
        
         <Box className={style.container}>
             <Box className={style.containerImg}>
-                <Avatar src={userData.image} alt="foto del usuario" sx={{width:160, height:160}} variant="rounded" />
+                <Avatar src={userData.image} alt="foto del usuario" sx={{width:170, height:170}} variant="rounded"/>
             </Box>
             <Box className={style.containerData}>
                 <Box className={style.name}>

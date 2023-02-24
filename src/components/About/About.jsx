@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import {Button} from "@mui/material";
 const About = () => {
   return (
-    <Box bgcolor="#D5DBDB" padding="2rem" height="100%" minHeight="100vh" sx={{backgroundAttachment: 'fixed', backgroundSize: 'cover'}}>
+    <Box bgcolor="#D5DBDB" padding="5rem" height="100%" minHeight="100vh" sx={{backgroundAttachment: 'fixed', backgroundSize: 'cover'}}>
       <Link to="/" style={{"textDecoration":"none"}}>
         <Button color="success" variant="outlined" sx={{fontWeight:"bold"}}>Volver al Home</Button>
         </Link>

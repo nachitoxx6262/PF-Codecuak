@@ -40,10 +40,9 @@ const Contacto = () => {
       sx={{ backgroundAttachment: "fixed", backgroundSize: "cover" }}
     >
       {submit ? <Alert severity="success">Se envió con exito!</Alert> : <></>}
+
       <Box>
-  
-         <BacktoHome />
-  
+        <BacktoHome />
       </Box>
       <Box
         display="flex"
@@ -117,7 +116,6 @@ const Contacto = () => {
             </Box>
             <Box height="3rem" display="flex" justifyContent="center">
               <Button
-                
                 type="submit"
                 size="large"
                 variant="contained"
