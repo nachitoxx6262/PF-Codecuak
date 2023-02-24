@@ -53,13 +53,16 @@ const NavBar = () => {
   const [search, setSearch] = useState("");
   const [data, setData] = useState(false);
   const [notiExpanded, setNotiExpanded] = useState(false);
-
   const usersByName = useSelector((state) => state.users);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  
+  const token = localStorage.getItem("token");
+
+  
   const submitHandler = (event) => {
     event.preventDefault();
-    dispatch(getUsersByName(search));
+    dispatch(getUsersByName(search,token));
     navigate("/users");
   };
 

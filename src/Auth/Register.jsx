@@ -6,10 +6,12 @@ import { FormControl,Box,TextField,Button,Typography,FormHelperText} from '@mui/
 import {userRegister} from "../axiosFunctions"
 
 const Register = () => {
+  // ESTADOS LOCALES
   const [user,setUser]= useState({name: '', email: '',nickName:'',password:''})
   const [backError, setBackError] = useState("");
   const [errors, setErrors] = useState({})
   const [touched, setTouched] = useState(false);
+
   const handleSubmit =async()=>{
         try{
           const response = await userRegister(user)
@@ -17,9 +19,8 @@ const Register = () => {
         }catch (error){
           setBackError(error.message)
         }
-        
-        
       }
+
   const handleChange =(e)=>{
   const property = e.target.name;
   const value = e.target.value;

@@ -16,7 +16,7 @@ const CardPost = ({ post, userData }) => {
   const { content, socialcomments, likes, userdevId, id } = post;
   //datos del usuario que hizo el posteo
   const { name, image } = post.userdev
-
+  console.log(userData)
   const [likeState, setStateLike] = useState(false);
   const [like, setLike] = useState(likes);
   const [viewComents, setViewComents] = useState(false);
@@ -53,7 +53,8 @@ const CardPost = ({ post, userData }) => {
             <Avatar src={image} alt="Foto de perfil" />
             <Typography fontFamily="sen" variant="h6" color="black">{name}</Typography>
           </Box>
-          {post.userdevId === userData.id ? <LongMenu post={post}/> : null}
+          {/* {userdevId === userData.id ? <LongMenu post={post}/> : null} */}
+          <LongMenu post={post}/>
         </Box>
         <Box width="90%" >
           <Typography fontFamily="Sen" variant="body1" color="black" fontSize="1.1em">{content}</Typography>

@@ -11,17 +11,16 @@ import {Box, Card, Skeleton} from "@mui/material";
 
 const PostSocialContainer = () => {
   const token = localStorage.getItem("token");
-  console.log(token)
   const posts = useSelector((state) => state.posts);
   const userData = useSelector((state)=>state.userData)
   const dispatch = useDispatch();
-
+  console.log(posts)
   // useEffect(() => {
   //   dispatch(getAllPost());
   // }, [dispatch,posts]);
   
   useEffect(()=>{
-    dispatch(getAllPost(token));
+    dispatch(getAllPost());
     return () => dispatch(cleanPost());
   },[dispatch])
 

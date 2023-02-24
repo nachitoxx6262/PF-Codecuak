@@ -7,18 +7,18 @@ import NavBar from "../NavBar/NavBar";
 import UserProfile from "../blueprints/UserProfile/UserProfile";
 
 const UserDetail = () => {
-
+  const token  = localStorage.getItem("token")
   const dispatch = useDispatch();
   const userDetail = useSelector(state => state.userDetail)
 
   const { id } = useParams();
 
   useEffect(() => {
-    dispatch(getUserDetailById(id))
+    dispatch(getUserDetailById(id,token))
   }, [dispatch])
 
   useEffect(() => {
-    dispatch(getUserDetailById(id))
+    dispatch(getUserDetailById(id,token))
   }, [dispatch, userDetail])
 
 

@@ -20,22 +20,29 @@ export const GET_BYID_USER = "GET_BYID_USER";
 export const GET_USERS_NAME = "GET_USERS_NAME";
 export const GET_USERS_ALPHA = "GET_USERS_ALPHA";
 export const GET_BYID_USER_DETAIL = "GET_BYID_USER_DETAIL";
-
+const URL_BASE = "https://backend-production-c946.up.railway.app"
 const URL = {
   URL_SOCIAL: "https://backend-production-c946.up.railway.app/socialcuak",
   URL_USERS: "http://backend-production-c946.up.railway.app/users"
 };
 
+const config = {
+  headers:{
+    "x-auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiMWM0MzRjODctMmI5MC00YWRkLWEyZjItZThhMDNjZDE1MjAxIn0sImlhdCI6MTY3NzI3NTAxNywiZXhwIjoxNjc3NDQ3ODE3fQ.aqhJ8pnoIK4i2I3DqXv4d0F2qojHlunw-WYSTboD8p4",
+  }
+}
+
 // ##################### SOCIAL CUAK ########################
 // POSTEOS  🛑
 // GET ALL POST
 // solamente vamos a tener los post con la info usuario
-export const getAllPost = (token) => {
+export const getAllPost = () => {
   return function (dispatch) {
-    axios.get(URL.URL_SOCIAL,{
-      headers: {'x-auth-token': token}}).then((response) => {
-      dispatch({ type: GET_ALL_POST, payload: response.data });
-    });
+    try{
+      axios.get(`${URL_BASE}/socialcuak`).then((response) => {
+          dispatch({ type: GET_ALL_POST, payload: response.data });
+        });
+    }catch(error){}
   };
 };
 
@@ -121,27 +128,39 @@ export const destroyDeleteComment = ({ commentId }) => {
 // }
 // DELETE DEL COMENTARIO
 
-// USERS  🛑
-// GET USERS BY ID
+// 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑  USERS  🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑
+// GET USERS BY ID NECESITA TOKEN
 export const getUserById = (token) => {
   return async function (dispatch) {
-    const data = await axios.get(`${URL.URL_USERS}/${userId}`);
-    return dispatch({ type: GET_BYID_USER, payload: data.data});
+    try{
+      const data = await axios.get(`${URL_BASE}/users/${userId}`,{headers:{"x-auth-token": `${token}`}});
+      return dispatch({ type: GET_BYID_USER, payload: data.data});
+    }catch(juliputo){
+      console.log("Error en || getUserById ||");
+    }
   };
 };
-
+// PEDIR TODOS LOS USUARIOS  NO NECESITA TOKEN
 export const getAllUsers = () => {
   return async function (dispatch) {
-    const data = await axios.get(URL.URL_USERS)
-    return dispatch({ type: GET_ALL_USER, payload: data.data })
+    try{
+      const data = await axios.get(`${URL_BASE}/users`)
+      return dispatch({ type: GET_ALL_USER, payload: data.data })
+    }catch(error){
+      console.log("Error en || getAllUsers ||")
+    }
   }
 }
 
-export const getUsersByName = (name) => {
+export const getUsersByName = (name,token) => {
   return async function (dispatch) {
-    const data = await axios.get(`https://backend-production-c946.up.railway.app/users?name=${name}`)
-    return dispatch({ type: GET_USERS_NAME, payload: data.data })
-  }
+    try{
+      const data = await axios.get(`${URL_BASE}/users/?name=${name}`,{headers:{"x-auth-token": `${token}`}})
+      return dispatch({ type: GET_USERS_NAME, payload: data.data })
+    }
+    catch(error){
+      console.log("Error en || getUsersByName ||",error)
+  }}
 }
 export const getUsersAlpha = (alpha) => {
   return async function (dispatch) {
@@ -159,12 +178,20 @@ export const getPage = (page) => {
 
 }
 
-export const getUserDetailById = (userId) => {
-  return async function (dispatch) {
-    const data = await axios.get(`${URL.URL_USERS}/${userId}`);
-    return dispatch({ type: GET_BYID_USER_DETAIL, payload: data.data});
+
+export const getUserDetailById = (userId, token) => {
+  return (dispatch) => {
+    axios
+      .get(`${URL_BASE}/users/${userId}`, { headers: { 'x-auth-token': token } })
+      .then((response) => {
+        dispatch({ type: GET_BYID_USER_DETAIL, payload: response.data });
+      })
+      .catch((error) => {
+        console.log(error, 'error en getuserdatilbyid');
+      });
   };
 };
+
 
 
 
