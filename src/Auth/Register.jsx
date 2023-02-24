@@ -12,7 +12,7 @@ const Register = () => {
   const [touched, setTouched] = useState(false);
   const handleSubmit =async()=>{
         try{
-          const response = userRegister(user)
+          const response = await userRegister(user)
           localStorage.setItem("token",response.data.token)
         }catch (error){
           setBackError(error.message)

@@ -2,24 +2,19 @@ import {useState} from 'react'
 import axios from 'axios'
 import { FormControl,Box,TextField,Button, Typography } from '@mui/material'
 import {Link, useNavigate} from "react-router-dom"
+import {userLogin} from "../axiosFunctions"
 const LogIn = () => {
   const navigate = useNavigate()
     const [user,setUser]= useState({email: '',password:''})
     const handleSubmit =async()=>{
-      let response = await axios({
-        url: "https://backend-production-c946.up.railway.app/login",
-        method: "POST",
-        data: user,
-      });
-      if(response.status == 200){
+      try{
+        const response = await userLogin(user)
         localStorage.setItem("token",response.data.token)
-        const token = localStorage.getItem("token");
-        console.log(token,"se guardo correctamente")
         navigate("/social")
+      }catch{
+        console.log("error en login")
       }
 
-      console.log(token)
-      return response
     }
     const handleChange =(e)=>{
     console.log("handelchange")
