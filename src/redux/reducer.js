@@ -41,12 +41,7 @@ const rootReducer = (state = initialState, action) => {
         users: action.payload,
 
       };
-    case GET_BYID_USER:
-      return {
-        ...state,
-        userData: action.payload,
-      };
-
+    
     case GET_BYID_USER_DETAIL:
       return {
         ...state,

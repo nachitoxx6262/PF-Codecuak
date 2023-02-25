@@ -10,8 +10,11 @@ const UserDetail = () => {
   const token  = localStorage.getItem("token")
   const dispatch = useDispatch();
   const userDetail = useSelector(state => state.userDetail)
+  console.log("userdetaildeuserdetai", userDetail);
 
   const { id } = useParams();
+  console.log(id,"iddaisjdiasjdskjhasdflgkjahsdg9iusdhjxczn");
+  console.log(token,"TOKEEEEEEEEEEEEEEEEEEEN");
 
   useEffect(() => {
     dispatch(getUserDetailById(id,token))

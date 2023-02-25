@@ -11,12 +11,13 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import LongMenu from "../../LongMenu/LongMenu";
 
 
-const CardPost = ({ post, userData }) => {
+const CardPost = ({ post }) => {
   // datos del posteo
   const { content, socialcomments, likes, userdevId, id } = post;
   //datos del usuario que hizo el posteo
   const { name, image } = post.userdev
-  console.log(userData)
+  console.log(post.userdev,"postssssdasdwedasdw");
+  
   const [likeState, setStateLike] = useState(false);
   const [like, setLike] = useState(likes);
   const [viewComents, setViewComents] = useState(false);

@@ -4,7 +4,7 @@ import style from "./social.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 //importamos actions
-import { getUserById } from "../../redux/action";
+import { getUserDetailById } from "../../redux/action";
 //importamos componentes
 import NavBar from '../NavBar/NavBar';
 import FormSocialPost from "../AuxComponents/FormSocialPost/FormSocialPost";
@@ -23,7 +23,7 @@ const Social = () => {
   // para luego utilizarlo en las cards de los posts y pagina de perfil
   useEffect(() => {
     // dispatch(fetchUser) hardcodeado hasta tener inicio de sesion
-    dispatch(getUserById(token));
+    dispatch(getUserDetailById(token));
   }, [dispatch])
   return (
     <>
