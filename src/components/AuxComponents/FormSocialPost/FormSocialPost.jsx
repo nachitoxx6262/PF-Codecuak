@@ -4,17 +4,16 @@ import style from "./formSocialPost.module.css";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { sendPost } from "../../../axiosFunctions";
-import { useAuth0 } from "@auth0/auth0-react";
 // componentes
 // IMPORT MATERIAL UI
-import Alert from '@mui/material/Alert';
 import { Avatar, Box, Typography, TextField, Button } from "@mui/material";
+
 const FormSocialPost = ({ user }) => {
-  const {isAuthenticated} = useAuth0()
   const dispatch = useDispatch();
   //usuario de prueba, los verdaderos vienen por props ya que el contenedor social hace el fetch de datos
   const [form, setForm] = useState("");
   const text = form.length;
+  const token  = localStorage.getItem("token")
   //const [users, setUsers] = useState("a2e13a38-ae82-40e2-9a43-ac5a66310f1d");
 
   const handlerChange = (event) => {
@@ -22,15 +21,16 @@ const FormSocialPost = ({ user }) => {
     setForm(value);
   };
 
+
   const handlerSubmit = async (event) => {
     event.preventDefault();
-    sendPost(form, user.id);
+    sendPost(form, user.id, token);
     setForm("");
   };
 
   return (
     <Box className={style.codetext} fontFamily={"Sen"} margin="15px">
-      <Box  width="80%" display="flex" flexDirection="column" justifyContent="center" >
+      <Box width="80%" display="flex" flexDirection="column" justifyContent="center" >
         <Box display="flex" gap="1rem">
           <Box>
             <Avatar src={user.image} alt="foto del usuario" />
@@ -40,7 +40,7 @@ const FormSocialPost = ({ user }) => {
           </Typography>
         </Box>
         <Box display="flex" justifyContent="center" color="white" flexGrow="1" >
-          <form onSubmit={handlerSubmit} style={{"display":"flex","flexDirection":"column","width":"100%"}}>
+          <form onSubmit={handlerSubmit} style={{ "display": "flex", "flexDirection": "column", "width": "100%" }}>
             <TextField
               fullWidth
               id="outlined-multiline-static"

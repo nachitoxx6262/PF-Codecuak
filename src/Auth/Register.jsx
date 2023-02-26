@@ -1,51 +1,52 @@
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import {validations} from "./validations"
-import { FormControl,Box,TextField,Button,Typography,FormHelperText} from '@mui/material'
+import { validations } from "./validations"
+import { FormControl, Box, TextField, Button, Typography, FormHelperText } from '@mui/material'
 // FUNCION REGISTER POST
-import {userRegister} from "../axiosFunctions"
+import { userRegister } from "../axiosFunctions"
 
 const Register = () => {
   // ESTADOS LOCALES
-  const [user,setUser]= useState({name: '', email: '',nickName:'',password:''})
+  const [user, setUser] = useState({ name: '', email: '', nickName: '', password: '' })
   const [backError, setBackError] = useState("");
   const [errors, setErrors] = useState({})
   const [touched, setTouched] = useState(false);
 
-  const handleSubmit =async()=>{
-        try{
-          const response = await userRegister(user)
-          localStorage.setItem("token",response.data.token)
-        }catch (error){
-          setBackError(error.message)
-        }
-      }
+  const handleSubmit = async () => {
+    try {
+      const response = await userRegister(user)
+      localStorage.setItem("token", response.data.token)
+    } catch (error) {
+      setBackError(error.message)
+    }
+  }
 
-  const handleChange =(e)=>{
-  const property = e.target.name;
-  const value = e.target.value;
-  if (!touched) {
-    setTouched(true);
+  const handleChange = (e) => {
+    const property = e.target.name;
+    const value = e.target.value;
+    if (!touched) {
+      setTouched(true);
+    }
+    setErrors(validations({ ...user, [property]: value }))
+    setUser({
+      ...user,
+      [property]: value,
+    });
   }
-  setErrors(validations({ ...user, [property]: value }))
-  setUser({
-    ...user,
-    [property]: value,
-  });
-  }
-  console.log(errors)
-return (
-  backError? <Typography>{backError}</Typography> :
-  <Box >
-    <Link to="/">
-      <Button>Volver al home</Button>
-      </Link>
-      <Typography variant='h2' align='center' fontFamily="Sen" color="#1E8449" marginBottom="20px">Register</Typography>
-       <FormControl
+
+  return (
+    backError ? <Typography>{backError}</Typography> :
+      <Box  padding="5rem">
+        <Link to="/" style={{textDecoration:"none"}}>
+          <Button color="success" variant="outlined" sx={{fontWeight:"bold"}}>Volver al home</Button>
+        </Link>
+        <Typography variant='h2' align='center' fontFamily="Sen" color="#1E8449" marginBottom="20px">Register</Typography>
+        <FormControl
           onSubmit={handleSubmit}
-          style={{ display: "flex", flexDirection: "column", gap: "1rem",alignItems:"center" }}
+          style={{ display: "flex", flexDirection: "column", gap: "1rem", alignItems: "center" }}
         >
           <TextField
+          size="small"
             required
             sx={{ color: "black" }}
             label="Nombre y Apellido"
@@ -56,7 +57,7 @@ return (
             error={errors.name}
             helperText={errors.name}
           ></TextField>
-           
+
           <TextField
             required
             sx={{ color: "black" }}
@@ -96,11 +97,12 @@ return (
             error={errors.password}
             helperText={errors.password}
           ></TextField>
-          <Link to="/login">
-            <Typography>Log In</Typography>
-            </Link>
+          <Link to="/login" style={{textDecoration:"none"}}>
+            <Button  color="success" variant="outlined" sx={{fontWeight:"bold",width:"14rem"}}>Log In</Button>
+          </Link>
           <Box marginTop="20px">
             <Button
+            sx={{fontWeight:"bold",width:"14rem"}}
               variant="contained"
               color="success"
               type="submit"
@@ -110,8 +112,8 @@ return (
             </Button>
           </Box>
         </FormControl>
-  </Box>
-)
+      </Box>
+  )
 }
 
 export default Register

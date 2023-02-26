@@ -3,8 +3,8 @@ const URL_BASE = "https://backend-production-c946.up.railway.app"
 
 // RUTA PARA PUBLICAR POST
 // falta fixear las rutas
-export const sendPost = async (content, userId) => {
-  let response = await axios.post(`${URL_BASE}/socialcuak`, { content, userId });
+export const sendPost = async (content, userId, token) => {
+  let response = await axios.post(`${URL_BASE}/socialcuak`, { content, userId }, { headers: { 'x-auth-token': token } });
   return response
 }
 
@@ -12,7 +12,7 @@ export const sendPost = async (content, userId) => {
 // RUTA PUBLICAR COMENTARIOS
 
 export const sendComment = async (content, userId, postId) => {
-  let data = await axios.post(`${URL_BASE}/socialcuak/${postId}/comment`, { content, userId });
+  let data = await axios.post(`${URL_BASE}/socialcuak/${postId}/comment`, { content, userId }, );
   return data
 };
 
@@ -47,10 +47,12 @@ export const sendMP = async (donacion,input) =>{
   // RUTA POST DEL USUARIO REGISTRADO
   
   export const userRegister = async (user)=>{
-    let response = await axios.post(`${URL_BASE}/signup`,{user})
-    return response}
+    console.log(user)
+    let response = await axios.post(`${URL_BASE}/auth/signup`,{user})
+    return response
+  }
 
 export const userLogin = async ({email,password})=>{
-  let response = await axios.post(`${URL_BASE}/login`,{email,password})
+  let response = await axios.post(`${URL_BASE}/auth/login`,{email,password})
   return response
 }

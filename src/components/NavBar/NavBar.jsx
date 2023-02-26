@@ -30,9 +30,10 @@ import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 
 const NavBar = () => {
   const { logout } = useAuth0();
-  const settings = [{name:"Perfil",link:"/user"},{ name:"Cuenta",link:""}];
+  const settings = [{ name: "Perfil", link: "/user" }, { name: "Cuenta", link: "" }];
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const user = useSelector(state => state.userData)
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -56,13 +57,13 @@ const NavBar = () => {
   const usersByName = useSelector((state) => state.users);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  
+
   const token = localStorage.getItem("token");
 
-  
+
   const submitHandler = (event) => {
     event.preventDefault();
-    dispatch(getUsersByName(search,token));
+    dispatch(getUsersByName(search, token));
     navigate("/users");
   };
 
@@ -117,14 +118,14 @@ const NavBar = () => {
             >
               {usersByName.results
                 ? usersByName.results.map((user) => {
-                    return (
-                      <SearchExpandedUser
-                        key={user.id}
-                        image={user.image}
-                        name={user.name}
-                      />
-                    );
-                  })
+                  return (
+                    <SearchExpandedUser
+                      key={user.id}
+                      image={user.image}
+                      name={user.name}
+                    />
+                  );
+                })
                 : null}
               {data ? (
                 <p style={{ color: "white", "font-size": "15px" }}>
@@ -158,7 +159,7 @@ const NavBar = () => {
 
           <Box className={style.iconsContainer}>
             <button onClick={handlerNotifications}>
-            <NotificationsActiveIcon sx={{color:"white"}}/>
+              <NotificationsActiveIcon sx={{ color: "white" }} />
             </button>
           </Box>
           <Box
@@ -189,7 +190,7 @@ const NavBar = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Ajustes">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar alt="Remy Sharp" src={user.image} />
               </IconButton>
             </Tooltip>
             <Menu
@@ -209,16 +210,16 @@ const NavBar = () => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                  <Link to={setting.link} style={{"textDecoration":"none","color":"black"}}>
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting.name}</Typography>
-                </MenuItem>
-                  </Link>
+                <Link to={setting.link} style={{ "textDecoration": "none", "color": "black" }}>
+                  <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                    <Typography textAlign="center">{setting.name}</Typography>
+                  </MenuItem>
+                </Link>
               ))}
               <MenuItem onClick={() => logout({ logoutParams: { returnTo: "http://localhost:5173/" } })}>
-                  <Typography textAlign="center">Cerrar Sesión</Typography>
-                </MenuItem>
-                          </Menu>
+                <Typography textAlign="center">Cerrar Sesión</Typography>
+              </MenuItem>
+            </Menu>
           </Box>
         </Box>
       </AppBar>

@@ -1,6 +1,5 @@
 import {
   GET_ALL_POST,
-  GET_BYID_POST,
   GET_BYUSERID_POST,
   PUT_POST,
   DELETE_POST,
@@ -41,7 +40,12 @@ const rootReducer = (state = initialState, action) => {
         users: action.payload,
 
       };
-    
+    case GET_BYID_USER:
+      return {
+        ...state,
+        userData: action.payload,
+      };
+
     case GET_BYID_USER_DETAIL:
       return {
         ...state,

@@ -16,8 +16,6 @@ const UsersAll = () => {
   const dispatch = useDispatch();
   const [pages, setPages] = useState("1");
   const data = useSelector((state) => state.users);
-
-  console.log(data);
   const pageCount = data.pages;
   const buttons = [];
 
