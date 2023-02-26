@@ -84,10 +84,10 @@ export const userLogin = async (email, password) => {
 export const googleLogin = async () => {
   console.log("login google")
   try {
-    let response = await axios.get("https://backend-production-c946.up.railway.app/auth/google", {maxRedirects: 6});
+    let response = await axios.get("http://localhost:3001/auth/google", {maxRedirects: 6});
     console.log(response)
     return response;
   } catch (error) {
     console.log(error);
   }
-};
+}
