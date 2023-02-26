@@ -14,9 +14,9 @@ import ComentContainer from "../ComentContainer/ComentContainer";
 import LongMenu from "../../LongMenu/LongMenu";
 
 
-const CardPost = ({post}) => {
+const CardPost = ({ post }) => {
   // datos del posteo
-  const { content, socialcomments, likes, userdevId, id } = post;
+  const { content, socialcomments, userdevId, likes, id } = post;
   //datos del usuario que hizo el posteo
   const { name, image } = post.userdev
 
@@ -53,11 +53,11 @@ const CardPost = ({post}) => {
       >
         <Box display="flex" flexDirection="row" alignItems="start" width={1}>
           <Box display="flex" gap="15px" alignItems="center" flexGrow={1}>
-            <Avatar src={image ? image: "unknown"} alt="Foto de perfil" />
+            <Avatar src={image} alt="Foto de perfil" />
             <Typography fontFamily="sen" variant="h6" color="black">{name}</Typography>
           </Box>
           {/* {userdevId === userId ? <LongMenu post={post}/> : null} */}
-          <LongMenu post={post}/>
+          <LongMenu post={post} />
         </Box>
         <Box width="90%" >
           <Typography fontFamily="Sen" variant="body1" color="black" fontSize="1.1em">{content}</Typography>
@@ -68,7 +68,7 @@ const CardPost = ({post}) => {
         </Box>
         {
           viewComents ?
-            <ComentContainer socialcomments={socialcomments} image={image} userdevId={userdevId} postId={id}/> : null
+            <ComentContainer socialcomments={socialcomments} postId={id}/> : null
         }
       </Box>
     </>

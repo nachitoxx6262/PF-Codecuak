@@ -14,12 +14,9 @@ export const sendPost = async (content, userId, token) => {
 
 // RUTA PUBLICAR COMENTARIOS
 
-export const sendComment = async (content, userId, postId) => {
-  let data = await axios.post(`${URL_BASE}/socialcuak/${postId}/comment`, {
-    content,
-    userId,
-  });
-  return data;
+export const sendComment = async (content, userId, postId, token) => {
+  let data = await axios.post(`${URL_BASE}/socialcuak/${postId}/comment`, { content, userId }, { headers: { 'x-auth-token': token } } );
+  return data
 };
 
 // RUTA PARA EDITAR UN POST

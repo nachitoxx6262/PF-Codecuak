@@ -5,14 +5,16 @@ import { useState } from "react";
 import { Avatar, Box, Button, Typography } from "@mui/material";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import { useSelector } from "react-redux";
 
-const CardComent = ({ comment, userData }) => {
+const CardComent = ({ comment }) => {
 
     const [like, setStatuslike] = useState(false);
 
     const handlerClick = () => {
         setStatuslike(!like)
     }
+
     return (
         <Box display="flex"
             flexDirection="column"
@@ -25,8 +27,8 @@ const CardComent = ({ comment, userData }) => {
             >
 
             <Box display="flex" gap="15px" alignItems="center">
-                <Avatar src={userData.image} alt="Foto de usuario" sx={{ width: "30px", height: "30px" }} />
-                <Typography variant="body1" fontFamily="Sen">{userData.name}</Typography>
+                <Avatar src={comment.userdev.image} alt="Foto de usuario" sx={{ width: "30px", height: "30px" }} />
+                <Typography variant="body1" fontFamily="Sen">{comment.userdev.name}</Typography>
             </Box>
             <Box marginLeft="1.1em">
                 <Typography variant="body2">{comment.content}</Typography>

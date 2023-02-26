@@ -37,10 +37,10 @@ const config = {
 // POSTEOS  🛑
 // GET ALL POST
 // solamente vamos a tener los post con la info usuario
-export const getAllPost = () => {
+export const getAllPost = (page) => {
   return function (dispatch) {
     try {
-      axios.get(URL.URL_SOCIAL).then((response) => {
+      axios.get(`${URL.URL_SOCIAL}?page=${page}`).then((response) => {
         dispatch({ type: GET_ALL_POST, payload: response.data });
       });
     } catch (error) {

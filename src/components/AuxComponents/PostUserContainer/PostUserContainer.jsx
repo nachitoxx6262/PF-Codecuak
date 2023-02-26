@@ -10,7 +10,6 @@ import CardPost from "../../blueprints/Social-UserPost/CardPost/CardPost";
 import { Box, Card, Skeleton } from "@mui/material";
 
 const PostUserContainer = ({posts}) => {
- 
 
   return (
     <Box display="flex" flexDirection="column" alignItems="center" marginTop="15px" gap="10px">
