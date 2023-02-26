@@ -4,8 +4,7 @@ import axios from "axios";
 // primero tipo de peticion despues algo descriptivo de ser nesesario y depues la cosa con la que se trabaja xd
 //💥 POSTEOS 💥
 export const GET_ALL_POST = "GET_ALL_POST";
-//export const GET_BYID_POST = "GET_BYID_POST";
-export const GET_BYUSERID_POST = "GET_BYUSERID_POST";
+export const GET_POST_BY_ID = "GET_POST_BY_ID";
 export const PUT_POST = "PUT_POST";
 export const DELETE_POST = "DELETE_POST";
 export const CLEAN_POST = "CLEAN_POST";
@@ -53,11 +52,11 @@ export const getAllPost = () => {
 
 //GET POST BY USERID
 //Los filtramos en el FRONT hasta que los del back hagan el filtro
-export const getPostByUserId = (userId, token) =>{
+export const getPostById = (postId, token) => {
   return async (dispatch) => {
     try {
-      const data = await axios.get(`${URL.URL_USERS}/${userId}`, { headers: { "x-auth-token": token } });
-      dispatch({type:GET_BYUSERID_POST, payload: data.data.socialposts})
+      const data = await axios.get(`${URL.URL_SOCIAL}/${postId}`, { headers: { "x-auth-token": token } });
+      dispatch({ type: GET_POST_BY_ID, payload: data.data })
     } catch (error) {
       console.log(error.message)
     }

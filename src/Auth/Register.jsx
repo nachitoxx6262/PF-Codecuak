@@ -14,7 +14,7 @@ const Register = () => {
 
   const handleSubmit = async () => {
     try {
-      const response = await userRegister(user)
+      const response = await userRegister(user.name,user.email,user.nickName,user.password)
       localStorage.setItem("token", response.data.token)
     } catch (error) {
       setBackError(error.message)

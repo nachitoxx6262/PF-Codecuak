@@ -4,27 +4,13 @@ import styles from "./postUserContainer.module.css";
 import { useEffect } from "react"; ``
 import { useDispatch, useSelector } from "react-redux";
 //actions
-import { getPostByUserId, cleanPost } from "../../../redux/action";
 //componentes
 import CardPost from "../../blueprints/Social-UserPost/CardPost/CardPost";
 // dependencias mui
 import { Box, Card, Skeleton } from "@mui/material";
 
-const PostUserContainer = ({ userId }) => {
-  
-  const dispatch = useDispatch();
-  const posts = useSelector((state) => state.posts);
-  const token = localStorage.getItem("token");
-
-  console.log(posts);
-
-  useEffect(()=>{
-    dispatch(cleanPost())
-  },[dispatch])
-
-  // useEffect(() => {
-  //   dispatch(getPostByUserId(userId, token));
-  // }, [dispatch]);
+const PostUserContainer = ({posts}) => {
+ 
 
   return (
     <Box display="flex" flexDirection="column" alignItems="center" marginTop="15px" gap="10px">

@@ -1,10 +1,10 @@
 //estilos
 import styles from "./CardPost.module.css";
 //hooks
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 //auxiliares
-import AddComent from "../AddComent/AddComent";
 import { Avatar, Box, Button, Typography, } from "@mui/material";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
@@ -53,7 +53,7 @@ const CardPost = ({post}) => {
       >
         <Box display="flex" flexDirection="row" alignItems="start" width={1}>
           <Box display="flex" gap="15px" alignItems="center" flexGrow={1}>
-            <Avatar src={image} alt="Foto de perfil" />
+            <Avatar src={image ? image: "unknown"} alt="Foto de perfil" />
             <Typography fontFamily="sen" variant="h6" color="black">{name}</Typography>
           </Box>
           {/* {userdevId === userId ? <LongMenu post={post}/> : null} */}
@@ -68,7 +68,7 @@ const CardPost = ({post}) => {
         </Box>
         {
           viewComents ?
-            <ComentContainer socialcomments={socialcomments} image={image} userdevId={userdevId} postId={id} userId={userId}/> : null
+            <ComentContainer socialcomments={socialcomments} image={image} userdevId={userdevId} postId={id}/> : null
         }
       </Box>
     </>

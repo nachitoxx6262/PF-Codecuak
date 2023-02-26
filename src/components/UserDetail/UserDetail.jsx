@@ -25,7 +25,7 @@ const UserDetail = () => {
   return (
     <div>
       <NavBar />
-      <UserProfile userData={userDetail} />
+      <UserProfile user={userDetail} />
     </div>
   )
 }

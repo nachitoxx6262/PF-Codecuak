@@ -12,7 +12,6 @@ import { Box, Card, Skeleton } from "@mui/material";
 const PostSocialContainer = () => {
   const token = localStorage.getItem("token");
   const posts = useSelector((state) => state.posts);
-  const userData = useSelector((state) => state.userData)
   const dispatch = useDispatch();
   
   useEffect(() => {
@@ -20,9 +19,9 @@ const PostSocialContainer = () => {
     return () => dispatch(cleanPost());
   }, [dispatch])
   
-  useEffect(() => {
-    dispatch(getAllPost());
-  }, [dispatch, posts]);
+  // useEffect(() => {
+  //   dispatch(getAllPost());
+  // }, [dispatch, posts]);
 
   return (
     <Box display="flex" flexDirection="column" gap="15px" alignItems="center" width="90%">

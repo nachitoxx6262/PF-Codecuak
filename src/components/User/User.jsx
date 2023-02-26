@@ -7,12 +7,19 @@ import NavBar from "../NavBar/NavBar";
 import UserProfile from "../blueprints/UserProfile/UserProfile";
 
 const User = () => {
+  const dispatch = useDispatch();
   const userData = useSelector((state)=> state.userData);
+  const token  = localStorage.getItem("token")
+
+  useEffect(()=>{
+    dispatch(getUserById(token, userData.id))
+  },[dispatch])
+
   return (
     <div>
       <NavBar />
       {/* userProfile renderiza los datos de un usuario especifico, en este caso el que inicio sesion. */}
-      <UserProfile userData={userData}/>
+      <UserProfile user={userData}/>
     </div>
   )
 }

@@ -46,13 +46,19 @@ export const sendMP = async (donacion,input) =>{
 }
   // RUTA POST DEL USUARIO REGISTRADO
   
-  export const userRegister = async (user)=>{
-    console.log(user)
-    let response = await axios.post(`${URL_BASE}/auth/signup`,{user})
+  export const userRegister = async (name,email,nickName,password)=>{
+
+    let response = await axios.post(`${URL_BASE}/auth/signup`,{name,email,nickName,password})
     return response
   }
+  // RUTA POST DEL LOG IN DE USUARIOS
 
-export const userLogin = async ({email,password})=>{
-  let response = await axios.post(`${URL_BASE}/auth/login`,{email,password})
-  return response
+export const userLogin = async (email, password)=>{
+  console.log(email,password)
+  try {
+    let response = await axios.post(`${URL_BASE}/auth/login`,{email,password})
+    return response.data
+  } catch (error) {
+    console.log(error.message)
+  }
 }

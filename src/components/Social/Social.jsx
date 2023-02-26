@@ -20,7 +20,10 @@ const Social = () => {
 
   useEffect(()=>{
     dispatch(getUserById(token, id))
-    return () => {dispatch(cleanPost())}
+  },[dispatch])
+
+  useEffect(()=>{
+    return()=>{dispatch(cleanPost())}
   },[dispatch])
 
   return (

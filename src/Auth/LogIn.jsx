@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import GoogleIcon from '@mui/icons-material/Google';
 import { FormControl, Box, TextField, Button, Typography } from '@mui/material'
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { userLogin } from "../axiosFunctions"
 import { useDispatch } from 'react-redux'
 import { getUserById } from '../redux/action'
@@ -11,14 +11,17 @@ const LogIn = () => {
 
   const [user, setUser] = useState({ email: '', password: '' })
 
+  const navigate = useNavigate();
+
+
   const handleSubmit = async () => {
     try {
-      const response = await userLogin(user)
-      localStorage.setItem("token", response.data.token)
-      localStorage.setItem("id", response.data.user.id)
+      const response = await userLogin(user.email, user.password)
+      localStorage.setItem("token", response.token)
+      localStorage.setItem("id", response.user.id)
       navigate("/social")
-    } catch {
-      console.log("error en login")
+    } catch (error) {
+      console.log(error.message)
     }
   }
 

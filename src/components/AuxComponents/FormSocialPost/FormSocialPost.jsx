@@ -10,11 +10,9 @@ import { Avatar, Box, Typography, TextField, Button } from "@mui/material";
 
 const FormSocialPost = ({ user }) => {
   const dispatch = useDispatch();
-  //usuario de prueba, los verdaderos vienen por props ya que el contenedor social hace el fetch de datos
   const [form, setForm] = useState("");
   const text = form.length;
   const token  = localStorage.getItem("token")
-  //const [users, setUsers] = useState("a2e13a38-ae82-40e2-9a43-ac5a66310f1d");
 
   const handlerChange = (event) => {
     const value = event.target.value;
