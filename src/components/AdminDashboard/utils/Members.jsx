@@ -45,18 +45,18 @@ const Members = ({allusers}) => {
             display="flex"
             justifyContent="center"
             backgroundColor={
-              status === "superadmin"
+              status == "superadmin"
                 ? "#7dcea0"
-                : status === "admin"
+                : status == "admin"
                 ? "#7dcea0"
                 : "#7dcea0"
             }
             borderRadius="4px"
           >
-            {status === "superadmin" && <AdminPanelSettingsOutlinedIcon />}
-            {status === "admin" && <SecurityOutlinedIcon />}
-            {status === "dev" && <AccountCircleIcon />}
-            <Typography color={"black"} sx={{ ml: "5px" }}>
+            {status == "superadmin" && <AdminPanelSettingsOutlinedIcon />}
+            {status == "admin" && <SecurityOutlinedIcon />}
+            {status == "dev" && <AccountCircleIcon />}
+            <Typography color={"black"} sx={{ ml: "5px", textTransform:"capitalize" }}>
               {status}
             </Typography>
           </Box>
