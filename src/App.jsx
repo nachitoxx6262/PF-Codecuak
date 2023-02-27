@@ -15,6 +15,7 @@ import Donaciones from "./components/blueprints/Donaciones/Donaciones";
 import Feedback from "./components/blueprints/Donaciones/Gracias";
 import LogIn from "./Auth/LogIn"
 import Register from "./Auth/Register"
+import AdminDashboard from "./components/AdminDashboard/AdminDashboard";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
         <Route exact path="/gracias" element={<Feedback/>}/>
         <Route exact path="/login" element={<LogIn/>}/>
         <Route exact path="/register" element={<Register/>}/>
+        <Route exact path="/admin" element={<AdminDashboard/>}/>
       </Routes>
     </div>
   );
