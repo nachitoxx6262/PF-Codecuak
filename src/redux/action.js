@@ -57,6 +57,7 @@ export const getPostById = (postId, token) => {
   return async (dispatch) => {
     try {
       const data = await axios.get(`${URL.URL_SOCIAL}/${postId}`, { headers: { "x-auth-token": token } });
+      console.log(token);
       dispatch({ type: GET_POST_BY_ID, payload: data.data })
     } catch (error) {
       console.log(error.message)

@@ -21,12 +21,13 @@ import {
   Menu,
   IconButton,
 } from "@mui/material";
-import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
+import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 
 const NavBar = () => {
-  const dispatch = useDispatch();
-
-  const settings = [{ name: "Perfil", link: "/user" }, { name: "Cuenta", link: "" }];
+  const settings = [
+    { name: "Perfil", link: "/user" },
+    { name: "Cuenta", link: "" },
+  ];
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const user = useSelector(state => state.userData)
@@ -53,7 +54,6 @@ const NavBar = () => {
   const usersByName = useSelector((state) => state.users);
 
   const token = localStorage.getItem("token");
-
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -90,7 +90,7 @@ const NavBar = () => {
         sx={{ backgroundColor: "#1E8449" }}
       >
         <Box display="flex" justifyContent="space-around" alignItems="center">
-          <Box >
+          <Box>
             <Link to={"/"}>
               <img height="70px" src={logo} alt="loguito" />
             </Link>
@@ -112,14 +112,14 @@ const NavBar = () => {
             >
               {usersByName.results
                 ? usersByName.results.map((user) => {
-                  return (
-                    <SearchExpandedUser
-                      key={user.id}
-                      image={user.image}
-                      name={user.name}
-                    />
-                  );
-                })
+                    return (
+                      <SearchExpandedUser
+                        key={user.id}
+                        image={user.image}
+                        name={user.name}
+                      />
+                    );
+                  })
                 : null}
               {data ? (
                 <p style={{ color: "white", "font-size": "15px" }}>
@@ -204,7 +204,10 @@ const NavBar = () => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <Link to={setting.link} style={{ "textDecoration": "none", "color": "black" }}>
+                <Link
+                  to={setting.link}
+                  style={{ textDecoration: "none", color: "black" }}
+                >
                   <MenuItem key={setting} onClick={handleCloseUserMenu}>
                     <Typography textAlign="center">{setting.name}</Typography>
                   </MenuItem>

@@ -12,9 +12,9 @@ import Contacto from "./components/Contacto/Contacto";
 import UsersAll from "./components/UsersAll/UsersAll";
 import UserDetail from "./components/UserDetail/UserDetail";
 import Donaciones from "./components/blueprints/Donaciones/Donaciones";
-import Feedback from "./components/blueprints/Donaciones/Gracias";
-import LogIn from "./Auth/LogIn"
-import Register from "./Auth/Register"
+import Gracias from "./components/blueprints/Donaciones/Gracias";
+import LogIn from "./Auth/LogIn";
+import Register from "./Auth/Register";
 import AdminDashboard from "./components/AdminDashboard/AdminDashboard";
 
 function App() {
@@ -31,12 +31,12 @@ function App() {
         <Route exact path="/terminos" element={<Terminos />} />
         <Route exact path="/contacto" element={<Contacto />} />
         <Route exact path="/users" element={<UsersAll />} />
-        <Route exact path="/users/:id" element = {<UserDetail/>}/>
-        <Route exact path="/donaciones" element={<Donaciones/>}/>
-        <Route exact path="/gracias" element={<Feedback/>}/>
-        <Route exact path="/login" element={<LogIn/>}/>
-        <Route exact path="/register" element={<Register/>}/>
-        <Route exact path="/admin" element={<AdminDashboard/>}/>
+        <Route exact path="/users/:id" element={<UserDetail />} />
+        <Route exact path="/donaciones" element={<Donaciones />} />
+        <Route exact path="/gracias" element={<Gracias/>} />
+        <Route exact path="/login" element={<LogIn />} />
+        <Route exact path="/register" element={<Register />} />
+        <Route exact path="/admin" element={<AdminDashboard />} />
       </Routes>
     </div>
   );

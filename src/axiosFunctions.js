@@ -8,7 +8,8 @@ export const sendPost = async (content, userId, token) => {
     `${URL_BASE}/socialcuak`,
     { content, userId },
     { headers: { "x-auth-token": token } }
-  );
+    );
+    console.log(response);
   return response;
 };
 

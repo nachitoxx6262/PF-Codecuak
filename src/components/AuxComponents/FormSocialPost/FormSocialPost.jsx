@@ -13,7 +13,7 @@ const FormSocialPost = ({ user }) => {
   const [form, setForm] = useState("");
   const text = form.length;
   const token  = localStorage.getItem("token")
-
+console.log(token);
   const handlerChange = (event) => {
     const value = event.target.value;
     setForm(value);
@@ -22,7 +22,7 @@ const FormSocialPost = ({ user }) => {
 
   const handlerSubmit = async (event) => {
     event.preventDefault();
-    sendPost(form, user.id, token);
+    await sendPost(form, user.id, token);
     setForm("");
   };
 

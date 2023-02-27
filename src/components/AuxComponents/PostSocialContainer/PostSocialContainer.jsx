@@ -25,6 +25,7 @@ const PostSocialContainer = () => {
     return () => dispatch(cleanPost());
   }, [dispatch])
 
+ 
   // ---------Concatena los array de posteos al actulizar el estado global "posts"------
   useEffect(()=>{
     if(page==1) setArrayPosts(posts.results)
