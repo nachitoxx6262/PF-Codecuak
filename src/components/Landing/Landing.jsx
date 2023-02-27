@@ -2,7 +2,6 @@
 import styles from "./Landing.module.css";
 // hooks
 import { Link } from "react-router-dom";
-import { useAuth0 } from "@auth0/auth0-react";
 // dependencias MUI
 import { Box, Typography, Button, Icon } from "@mui/material";
 import ConnectWithoutContactIcon from "@mui/icons-material/ConnectWithoutContact";
@@ -12,7 +11,6 @@ import TerminalIcon from "@mui/icons-material/Terminal";
 import {List,ListItem } from "@mui/material";
 //componentes
 import LoginButton from "../blueprints/buttonsAuth/LoginButton";
-import LogOutButton from "../blueprints/buttonsAuth/LogOutButton";
 import logo from "../../Media/logo-03.png";
 import Footer from "../blueprints/Footer/Footer";
 
@@ -61,7 +59,6 @@ const Landing = () => {
       icon: 4,
     },
   ];
-  const { isAuthenticated } = useAuth0();
   return (
     <Box className={styles.containter}>
       <Box className={styles.nav}>
@@ -79,7 +76,7 @@ const Landing = () => {
         </Box>
         <Box className={styles.loginbtn}>
 
-          {isAuthenticated ? <LogOutButton /> : <LoginButton />}
+          <LoginButton />
         </Box>
       </Box>
 

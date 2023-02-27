@@ -1,39 +1,36 @@
 //estilos
+import React from "react";
 import style from "./NavBar.module.css";
 //hooks
-import { useAuth0 } from "@auth0/auth0-react";
-import * as React from 'react';
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { getUsersByName } from "../../redux/action";
 import { useSelector, useDispatch } from "react-redux";
-import { getAllUsers } from "./../../redux/action";
+
 //componentes
 import logo from "../../Media/logo-03.png";
 import SearchExpandedUser from "../AuxComponents/SeachExpandedUser/SearchExpandedUser";
-import { useNavigate } from "react-router-dom";
 // import MATERIAL UI
 import {
   AppBar,
   Box,
-  Toolbar,
   MenuItem,
   Typography,
-  TextField,
   Tooltip,
   Avatar,
-  Container,
   Menu,
   IconButton,
 } from "@mui/material";
 import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 
 const NavBar = () => {
-  const { logout } = useAuth0();
+  const dispatch = useDispatch();
+
   const settings = [{ name: "Perfil", link: "/user" }, { name: "Cuenta", link: "" }];
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const user = useSelector(state => state.userData)
+  const navigate = useNavigate();
   
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -50,13 +47,10 @@ const NavBar = () => {
     setAnchorElUser(null);
   };
 
-
   const [search, setSearch] = useState("");
   const [data, setData] = useState(false);
   const [notiExpanded, setNotiExpanded] = useState(false);
   const usersByName = useSelector((state) => state.users);
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   const token = localStorage.getItem("token");
 
@@ -221,7 +215,10 @@ const NavBar = () => {
               <MenuItem key={user.id}>DashBoard</MenuItem> 
               </Link> : null}
              
-              <MenuItem onClick={() => logout({ logoutParams: { returnTo: "http://localhost:5173/" } })}>
+              <MenuItem onClick={() => {
+                  localStorage.setItem("token", "");
+                  window.location.href = "/";
+                }}>
                 <Typography textAlign="center">Cerrar Sesión</Typography>
               </MenuItem>
             </Menu>
