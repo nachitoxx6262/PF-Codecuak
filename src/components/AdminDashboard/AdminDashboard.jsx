@@ -11,6 +11,7 @@ const AdminDashboard = () => {
   const users = useSelector((state) => state.users);
   const posts = useSelector((state) => state.posts);
   const allusers = useSelector((state) => state.alluser);
+  console.log(posts.count)
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllUsers());

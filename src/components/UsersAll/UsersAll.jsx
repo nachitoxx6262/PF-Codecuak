@@ -106,7 +106,6 @@ const UsersAll = () => {
                   name={user.name}
                   image={user.image}
                   id={user.id}
-                  nickName={user.nickName}
                 />
               );
             })}

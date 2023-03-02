@@ -10,53 +10,45 @@ import CardPost from "../../blueprints/Social-UserPost/CardPost/CardPost";
 import { Box, Card, Skeleton } from "@mui/material";
 
 const PostSocialContainer = () => {
-  const token = localStorage.getItem("token");
-  const posts = useSelector((state) => state.posts);
-  const [arrayPosts, setArrayPosts] = useState([]);
+  const { count, next, arrayPosts } = useSelector((state) => state.posts);
   const [getPost, setGetPost] = useState(true);
   const [page, setPage] = useState(0)
-  const userData = useSelector((state) => state.userData)
   const dispatch = useDispatch();
 
   //--------Realiza petición de posts al cargar el componente-----
   useEffect(() => {
-    dispatch(getAllPost(page+1));
-    setPage(page+1);
+    dispatch(getAllPost(page + 1));
+    setPage(page + 1);
     return () => dispatch(cleanPost());
   }, [dispatch])
 
- 
-  // ---------Concatena los array de posteos al actulizar el estado global "posts"------
-  useEffect(()=>{
-    if(page==1) setArrayPosts(posts.results)
-    else if(page>1){
-      const newArray = arrayPosts.concat(posts.results);
-      setArrayPosts(newArray);
-      setGetPost(true) //Seteo el estado local getPost en true, para que se pueda realizar nuevas peticiones
-    }
-  }, [posts])
+  //Seteo el estado local getPost en true al actualizar el estado global "posts", para que se pueda realizar nuevas peticiones
+  useEffect(() => {
+    setGetPost(true)
+  }, [arrayPosts])
 
   //-------- Coloca handlerScroll al montar componente y lo retira al desmontar------- 
-  useEffect(()=>{
+  useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   })
-  
+
   // Hace Dispatch al llegar al final de la pagina y cumplir las condiciones
-  function handleScroll(){
-    if ( posts.next && getPost && ((window.innerHeight + window.scrollY + 1) >= document.documentElement.scrollHeight)) {
+  function handleScroll() {
+    if (next && getPost && ((window.innerHeight + window.scrollY + 1) >= document.documentElement.scrollHeight)) {
       setGetPost(false);
-      dispatch(getAllPost(page+1))
-      setPage(page+1)
+      dispatch(getAllPost(page + 1))
+      setPage(page + 1)
     }
   };
 
-
   return (
-    <Box display="flex" flexDirection="column" gap="15px" alignItems="center" width="90%">
-      {arrayPosts.length?
+    <Box display="flex" flexDirection="column" gap="15px" alignItems="center" width="45%">
+      {count !== null ?
         arrayPosts.map((post) => {
-          return <CardPost post={post} key={post.id} />;
+          return (
+            <CardPost post={post} key={post.id} />
+          )
         }) :
         <>
           {

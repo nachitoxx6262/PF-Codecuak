@@ -3,13 +3,11 @@ import { Button,Box} from "@mui/material";
 import {Link} from "react-router-dom"
 const LoginButton = () => {
   return (
-    <>
-    <Box width="10rem">
+    <Box>
       <Link to="/login">
       <Button  color="success" variant="contained" sx={{fontWeight:"bold"}}>Log In</Button>
       </Link>
     </Box>
-    </>
   )
 };
 

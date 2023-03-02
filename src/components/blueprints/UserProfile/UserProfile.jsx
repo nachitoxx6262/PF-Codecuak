@@ -79,7 +79,7 @@ const UserProfile = ({ user }) => {
                         </Box>
                     </Box>
                     <Divider variant="middle" sx={{ borderBottomWidth: 2 }} />
-                    <PostUserContainer posts={user.socialposts} />
+                    <PostUserContainer/>
                 </Box>
             </Box>
         </Box>

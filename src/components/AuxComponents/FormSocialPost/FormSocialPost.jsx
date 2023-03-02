@@ -1,9 +1,10 @@
 //importamos estilos
 import style from "./formSocialPost.module.css";
 //importamos hooks
-import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { sendPost } from "../../../axiosFunctions";
+import { getAllPost } from "../../../redux/action"
 // componentes
 // IMPORT MATERIAL UI
 import { Avatar, Box, Typography, TextField, Button } from "@mui/material";
@@ -12,22 +13,25 @@ const FormSocialPost = ({ user }) => {
   const dispatch = useDispatch();
   const [form, setForm] = useState("");
   const text = form.length;
-  const token  = localStorage.getItem("token")
-console.log(token);
+  const token = localStorage.getItem("token")
   const handlerChange = (event) => {
-    const value = event.target.value;
-    setForm(value);
+    if (token) {
+      const value = event.target.value;
+      setForm(value);
+    }
+    else alert("¡Por favor inicie sesión para publicar en codeCuak!")
   };
 
 
   const handlerSubmit = async (event) => {
     event.preventDefault();
     await sendPost(form, user.id, token);
+    dispatch(getAllPost(1)); // getAllPost de la pagina 1 de posteos para que se renderice el nuevo post
     setForm("");
   };
 
   return (
-    <Box className={style.codetext} fontFamily={"Sen"} margin="15px">
+    <Box className={style.codetext} fontFamily={"Sen"} margin="15px" style={token ? {} : { pointerEvents: 'none', opacity: .7 }}>
       <Box width="80%" display="flex" flexDirection="column" justifyContent="center" >
         <Box display="flex" gap="1rem">
           <Box>
@@ -49,6 +53,7 @@ console.log(token);
               required
               onChange={handlerChange}
               color="success"
+              value={form}
             />
             <Box display="flex" flexDirection="column" alignItems="center">
               {text > 1400 ? (
@@ -66,6 +71,7 @@ console.log(token);
                 sx={{ fontWeight: "bold", fontSize: "100" }}
                 type="submit"
                 disabled={text > 1500}
+
               >
                 Publicar
               </Button>

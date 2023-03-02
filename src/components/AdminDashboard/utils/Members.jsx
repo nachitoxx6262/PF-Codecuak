@@ -3,17 +3,21 @@ import { DataGrid } from "@mui/x-data-grid";
 import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
 import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
 import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
-import { useEffect } from "react";
+import { useEffect,useState } from "react";
 import { allUserAdmin } from "../../../redux/action";
 import { useSelector,useDispatch } from "react-redux";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { width } from "@mui/system";
+import Ban from "../Ban";
+
 const Members = ({allusers}) => {
   // const dispatch = useDispatch()
   // const users = useSelector((state)=>state.alluser)
   //  useEffect(()=>{
   //    dispatch(allUserAdmin())
   //  },[dispatch])
+  const [rowId, setRowId] = useState(null);
+
   const columns = [
     { field: "id", headerName: "ID" ,width:300,},
     {
@@ -63,6 +67,11 @@ const Members = ({allusers}) => {
         );
       },
     },
+    {
+      field: "ban",
+      headerName: "Baneos",
+      renderCell: (params) => <Ban {...{ params, rowId, setRowId }} />,
+    },
   ];
 
   return (
@@ -97,7 +106,7 @@ const Members = ({allusers}) => {
           },
         }}
       >
-        <DataGrid pageSize={11} checkboxSelection rows={allusers} columns={columns} fontFamily={"Sen"} />
+        <DataGrid pageSize={11} onCellEditCommit={(params) => setRowId(params.id)}  getRowId={(row) => row.id} checkboxSelection rows={allusers} columns={columns} fontFamily={"Sen"} />
       </Box>
     </Box>
   );

@@ -5,10 +5,11 @@ import {  useState } from "react";
 //actions
 import { sendComment } from "../../../../axiosFunctions";
 import { Avatar, Box, Button, TextField } from "@mui/material";
-import {  useSelector } from "react-redux";
+import {  useDispatch, useSelector } from "react-redux";
 
 const AddComent = (props) => {
     const { postId } = props
+    const dispatch = useDispatch();
     const userData = useSelector(state => state.userData);
     const token = localStorage.getItem("token")
     const [coment, setComent] = useState("")
@@ -20,7 +21,7 @@ const AddComent = (props) => {
 
     const submitHandler = (event) => {
         event.preventDefault();
-        sendComment(coment, userData.id, postId, token);
+        sendComment(coment, userData.id, postId, token, dispatch);
         setComent("");
     }
 

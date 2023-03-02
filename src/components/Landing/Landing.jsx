@@ -1,24 +1,25 @@
 //estilos css
 import styles from "./Landing.module.css";
 // hooks
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // dependencias MUI
 import { Box, Typography, Button, Icon } from "@mui/material";
 import ConnectWithoutContactIcon from "@mui/icons-material/ConnectWithoutContact";
 import WorkspacesIcon from "@mui/icons-material/Workspaces";
 import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
 import TerminalIcon from "@mui/icons-material/Terminal";
-import {List,ListItem } from "@mui/material";
+import { List, ListItem } from "@mui/material";
 //componentes
 import LoginButton from "../blueprints/buttonsAuth/LoginButton";
 import logo from "../../Media/logo-03.png";
 import Footer from "../blueprints/Footer/Footer";
+import { useEffect, useState } from "react";
 
 const Landing = () => {
   const data = [
     {
-      id:"social",
-      link:"/social",
+      id: "social",
+      link: "/social",
       title: "socialCuak",
       color: "#dce3e3",
       secondTitle: "Aquí podrás expresarte",
@@ -27,8 +28,8 @@ const Landing = () => {
       icon: 1,
     },
     {
-      id:"Q&A",
-      link:"/qanda",
+      id: "Q&A",
+      link: "/qanda",
       title: "Q&A-Cuak",
       color: "#D5DBDB",
       secondTitle: "Para crecer necesitamos ayudarnos entre todos",
@@ -37,8 +38,8 @@ const Landing = () => {
       icon: 2,
     },
     {
-      id:"work",
-      link:"/work",
+      id: "work",
+      link: "/work",
       title: "workCuak",
       color: "#dce3e3",
       secondTitle: "La programación es un trabajo de equipo",
@@ -47,8 +48,8 @@ const Landing = () => {
       icon: 3,
     },
     {
-      id:"hiring",
-      link:"/hiring",
+      id: "hiring",
+      link: "/hiring",
 
       title: "hiringCuak",
       color: "#D5DBDB",
@@ -59,25 +60,32 @@ const Landing = () => {
       icon: 4,
     },
   ];
+
+  const token = localStorage.getItem("token");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    token ? navigate("/social") : null
+  }, [])
+
   return (
     <Box className={styles.containter}>
       <Box className={styles.nav}>
-        <a href="#code">
-          <img src={logo} alt="logofooter" className={styles.logoFooter} />
-        </a>
         <Box>
-        <List component="ul" className={styles.navul}>
-        <ListItem ><a href="#social"className={styles.a} >{">_"}socialCuak</a></ListItem>
-        <ListItem><a href="#Q&A" className={styles.a} >{">_"}Q&A-Cuak</a></ListItem>
-        <ListItem ><a href="#work" className={styles.a} >{">_"}workCuak</a></ListItem>
-        <ListItem><a href="#hiring" className={styles.a}>{">_"}hiringCuak</a></ListItem>
-        <ListItem><Link to="/donaciones" className={styles.a}>{">_"}donaciones</Link></ListItem>
-        </List>
+          <Link href="#code">
+            <img src={logo} alt="logofooter" className={styles.logoFooter} />
+          </Link>
         </Box>
-        <Box className={styles.loginbtn}>
-
-          <LoginButton />
+        <Box>
+          <List component="ul" className={styles.navul}>
+            <ListItem ><Link href="#social" className={styles.a} >{">_"}socialCuak</Link></ListItem>
+            <ListItem><Link href="#Q&A" className={styles.a} >{">_"}Q&A-Cuak</Link></ListItem>
+            <ListItem ><Link href="#work" className={styles.a} >{">_"}workCuak</Link></ListItem>
+            <ListItem><Link href="#hiring" className={styles.a}>{">_"}hiringCuak</Link></ListItem>
+            <ListItem><Link to="/donaciones" className={styles.a}>{">_"}donaciones</Link></ListItem>
+          </List>
         </Box>
+        <LoginButton />
       </Box>
 
       {/* ######################################## CODE CUAK #########################################*/}
@@ -152,11 +160,11 @@ const Landing = () => {
               <Box display="flex" alignItems="center" justifyContent="center" height="10rem">
                 <Link to={element.link} style={{ textDecoration: "none" }}>
                   <Button
-                  style={{ width: 200, height: 70, fontSize:20, marginTop:100, gap:15}}
-                  size="large"
+                    style={{ width: 200, height: 70, fontSize: 20, marginTop: 100, gap: 15 }}
+                    size="large"
                     color="success"
                     variant="contained"
-                    sx={{ fontWeight: "bold",fontSize:"100" }}
+                    sx={{ fontWeight: "bold", fontSize: "100" }}
                   >
                     {element.icon == 1 ? (
                       <ConnectWithoutContactIcon fontSize="large" />
