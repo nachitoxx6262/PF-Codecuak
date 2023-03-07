@@ -2,6 +2,8 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { getUserDetailById, getUserById, getAllPost } from "./redux/action";
 const URL_BASE = "https://backend-production-c946.up.railway.app";
+//  http://localhost:3001
+// https://backend-production-c946.up.railway.app
 
 // RUTA PARA PUBLICAR POST
 // falta fixear las rutas
@@ -53,7 +55,7 @@ export const deletePost = async (id) => {
 };
 // RUTA POST DEL MERCADO PAGO
 export const sendMP = async (donacion, input) => {
-  let data = await axios.post(`http://localhost:3001/payment`, {
+  let data = await axios.post(`${URL_BASE}/payment`, {
     ...donacion,
     ...input,
   });
@@ -65,7 +67,7 @@ export const sendMP = async (donacion, input) => {
 export const userRegister = async (name, email, nickName, password) => {
   try {
     let response = await axios.post(
-      "https://backend-production-c946.up.railway.app/auth/signup",
+      `${URL_BASE}/auth/signup`,
       {
         name,
         email,

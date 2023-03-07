@@ -22,9 +22,9 @@ const UserProfile = ({ user }) => {
     }
 
     return (
-        <Box bgcolor="#D5DBDB" className={styles.container}>
+        <Box bgcolor="#D5DBDB" className={styles.container} marginTop="70px">
             <Box className={styles.subContainer1}>
-                <Box className={styles.subContainerUser} sx={{ boxShadow: '0px 4px 6px rgba(1, 1, 1, 0.20)' }}>
+                <Box className={styles.subContainerUser} sx={{ boxShadow: '0px 4px 6px rgba(1, 1, 1, 0.20)' }} maxWidth="70%">
                     <Box className={styles.portada}>
                         <img src={user.portada || portadaDefault} alt="Imagen de portada" />
                     </Box>

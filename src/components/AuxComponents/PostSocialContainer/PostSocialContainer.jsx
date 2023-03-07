@@ -10,7 +10,8 @@ import CardPost from "../../blueprints/Social-UserPost/CardPost/CardPost";
 import { Box, Card, Skeleton } from "@mui/material";
 
 const PostSocialContainer = () => {
-  const { count, next, arrayPosts } = useSelector((state) => state.posts);
+  const userId = localStorage.getItem("id")
+  const { count, next, name, image, id, arrayPosts } = useSelector((state) => state.posts);
   const [getPost, setGetPost] = useState(true);
   const [page, setPage] = useState(0)
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ const PostSocialContainer = () => {
     dispatch(getAllPost(page + 1));
     setPage(page + 1);
     return () => dispatch(cleanPost());
-  }, [dispatch])
+  }, [dispatch, id])
 
   //Seteo el estado local getPost en true al actualizar el estado global "posts", para que se pueda realizar nuevas peticiones
   useEffect(() => {
@@ -47,7 +48,15 @@ const PostSocialContainer = () => {
       {count !== null ?
         arrayPosts.map((post) => {
           return (
-            <CardPost post={post} key={post.id} />
+            <CardPost 
+            key={post.id} 
+            postId={post.id}
+            userId={userId}
+            content={post.content}
+            likes={post.likes}
+            userDev={post.userdev}
+            user= {{name, image, id}}
+            />
           )
         }) :
         <>

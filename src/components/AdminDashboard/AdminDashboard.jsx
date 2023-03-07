@@ -8,15 +8,11 @@ import DynamicFeedIcon from "@mui/icons-material/DynamicFeed";
 import { getAllUsers, getAllPost, allUserAdmin } from "../../redux/action";
 import Members from "./utils/Members";
 const AdminDashboard = () => {
-  const users = useSelector((state) => state.users);
-  const posts = useSelector((state) => state.posts);
+  const token  = localStorage.getItem("token")
   const allusers = useSelector((state) => state.alluser);
-  console.log(posts.count)
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getAllUsers());
-    dispatch(getAllPost(1));
-    dispatch(allUserAdmin());
+    dispatch(allUserAdmin(token));
   }, [dispatch]);
 
   return (
@@ -57,8 +53,8 @@ const AdminDashboard = () => {
             alignItems="center"
             justifyContent="center"
           >
-            <StatBox
-              title={users.count}
+             <StatBox
+              title={allusers.data.countAllUsers}
               subtitle="Total de Usuarios"
               icon={
                 <PersonAddIcon
@@ -69,8 +65,8 @@ const AdminDashboard = () => {
                   }}
                 />
               }
-            />
-          </Box>
+            /> 
+          </Box> 
           <Box
             width="10rem"
             height="10rem"
@@ -81,7 +77,7 @@ const AdminDashboard = () => {
             justifyContent="center"
           >
             <StatBox
-              title={posts.count}
+              title={allusers.data.countAllPost}
               subtitle="Total de Post"
               icon={
                 <DynamicFeedIcon
@@ -97,7 +93,7 @@ const AdminDashboard = () => {
         </Box>
       </Box>
       <Box>
-        <Members allusers={allusers} />
+        <Members allusers={allusers.data.results} /> 
       </Box>
     </Box>
   );

@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 //Importo componentes react
 import NavBar from "../NavBar/NavBar";
 import UserProfile from "../blueprints/UserProfile/UserProfile";
+//MUI
+import { Box } from "@mui/system";
 
 const User = () => {
   const dispatch = useDispatch();
@@ -17,6 +19,7 @@ const User = () => {
   useEffect(() => {
     if (token) {
       dispatch(getUserById(token, id));
+      window.scrollTo(0,0)
     } else {
       navigate("/social");
       alert("¡Por favor inicie sesión para ver el perfil!");
@@ -24,17 +27,16 @@ const User = () => {
   }, [dispatch, token]);
 
   return (
-    <div>
+    <>
       {token ? (
-        <div>
+        <Box>
           <NavBar />
           {/* userProfile renderiza los datos de un usuario especifico, en este caso el que inicio sesion. */}
           <UserProfile user={userData} />
-        </div>
-      ) : (
-        <></>
-      )}
-    </div>
+        </Box>
+      ) : null}
+
+    </>
   );
 };
 

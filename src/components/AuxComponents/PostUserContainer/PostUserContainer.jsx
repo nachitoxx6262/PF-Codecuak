@@ -15,16 +15,15 @@ import { useParams } from "react-router-dom";
 const PostUserContainer = () => {
 
   const dispatch = useDispatch();
-
   // se verifica si hay un id en params (userDetail)
   // para saber si se renderizan los posteos del
   // usuario que inicio sesion, o los de algun usuario X
-  const { id } = useParams()
-  const detailId = id;
+  const params = useParams()
+  const detailId = params.id;
   const userId = localStorage.getItem("id")
+  // idUtil es igual al id que exista
   const idUtil = detailId ? detailId : userId;
-
-  const {name, image, count, next, arrayPosts} = useSelector(state=>state.posts)
+  const {name, image, count, id, next, arrayPosts} = useSelector(state=>state.posts)
   const [getPost, setGetPost] = useState(true);
   const [page, setPage] = useState(0);
 
@@ -33,7 +32,7 @@ const PostUserContainer = () => {
     dispatch(getPostsByUserId(idUtil, page + 1));
     setPage(page + 1);
     return () => dispatch(cleanPost());
-  }, [dispatch, id])
+  }, [idUtil])
 
   //Seteo el estado local getPost en true al actualizar el estado global "posts", para que se pueda realizar nuevas peticiones
 
@@ -56,17 +55,24 @@ const PostUserContainer = () => {
     }
   };
 
-
   return (
-    <Box display="flex" flexDirection="column" alignItems="center" marginTop="15px" gap="10px" width={1}>
+    <Box display="flex" flexDirection="column" alignItems="center" marginTop="15px" gap="10px">
       {
         count !== null ?
           <>
             {arrayPosts?.map((post) => {
-              return <CardPost post={post} user={{ name, image }} />;
+              return <CardPost  
+              key={post.id} 
+              postId={post.id}
+              userId={userId}
+              content={post.content}
+              likes={post.likes}
+              userDev={post.userdev}
+              user= {{name, image, id}}
+              />;
             })}
-          </> :
-
+          </> 
+          :
           //---skeletons---
           <>
             {

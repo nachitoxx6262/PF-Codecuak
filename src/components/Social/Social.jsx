@@ -33,7 +33,8 @@ const Social = () => {
   const id = localStorage.getItem("id")
 
   useEffect(() => {
-    dispatch(getUserById(token, id))
+    dispatch(getUserById(token, id));
+    window.scrollTo(0,0);
     return () => { dispatch(cleanPost()) }
   }, [])
 

@@ -18,7 +18,7 @@ const options = [
 
 const ITEM_HEIGHT = 48;
 
-export default function LongMenu({post, userData}) {
+export default function LongMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -27,8 +27,8 @@ export default function LongMenu({post, userData}) {
 
   const handleClose = (event) => {
     const value = event.target.value;
-    if (value === "Editar") {return <FormDialog post = {post}/>}
-    if (value === "Eliminar") {return deletePost(post.id)}
+    if (value === "Editar") {return <FormDialog />}
+    if (value === "Eliminar") {}
     setAnchorEl(null);
 
 

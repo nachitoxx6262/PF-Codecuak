@@ -96,7 +96,7 @@ const NavBar = () => {
     <Box width="100%">
       <AppBar
         width="100%"
-        position="static"
+        position="fixed"
         sx={{ backgroundColor: "#1E8449" }}
       >
         <Box display="flex" justifyContent="space-around" alignItems="center">

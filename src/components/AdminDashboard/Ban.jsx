@@ -2,17 +2,18 @@ import React from "react";
 import { useState,useEffect } from "react";
 import { Box,Fab,CircularProgress } from "@mui/material";
 import { green } from "@mui/material/colors";
-
+import { deleteUser } from "../../redux/action";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { Check } from "@mui/icons-material";
 
 const Ban = ({ params, rowId, setRowId }) => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
-
+  const token  = localStorage.getItem("token")
   const handleSubmit = async () => {
     setLoading(true);
     const {id} = params.row;
-    const result = await updateClient(id);
+    const result = await deleteUser(id,token);
     if (result) {
       setSuccess(true);
       setRowId(null);
